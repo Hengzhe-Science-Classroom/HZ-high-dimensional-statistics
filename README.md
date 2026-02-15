@@ -2,7 +2,7 @@
 
 > Lasso theory, random matrix theory, minimax lower bounds — statistics when dimensions outnumber observations.
 
-[Open the App](https://hengzhe-science-classroom.github.io/HZ-high-dimensional-statistics/) (coming soon)
+[Open the App](https://hengzhe-science-classroom.github.io/HZ-high-dimensional-statistics/)
 
 Part of [Hengzhe's Science Classroom](https://hengzhe-science-classroom.github.io/hub/) · **Tier 5 · Research Frontier**
 
