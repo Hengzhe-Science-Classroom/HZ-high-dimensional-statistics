@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Welcome to High Dimensions</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>This opening chapter builds the geometric and probabilistic intuition you will need for the entire course. We begin by understanding <em>why</em> high-dimensional statistics is fundamentally different from classical statistics, then tour four key phenomena: the curse of dimensionality, the geometry of high-dimensional norms, the concentration shell, and the non-asymptotic viewpoint. By the end of this chapter, you will see that high dimensions are not merely "more of the same" but a qualitatively different regime requiring new tools.</p>
+                    </div>
+                </div>
+
+
                 <p>Classical statistics was built for a world where the number of observations \\(n\\) vastly exceeds the number of parameters \\(p\\). The central limit theorem, maximum likelihood theory, and chi-squared goodness-of-fit tests all rely, explicitly or implicitly, on the regime \\(n \\to \\infty\\) with \\(p\\) held fixed. In such settings, the statistician has abundant data relative to the complexity of the model, and the familiar asymptotic machinery works beautifully.</p>
 
                 <p>Modern data has shattered this assumption. In genomics, we may observe \\(n = 200\\) patients but measure \\(p = 20{,}000\\) gene expression levels. In neuroimaging, a single brain scan produces \\(p \\approx 10^5\\) voxels from \\(n \\approx 50\\) subjects. In natural language processing, document representations live in spaces of dimension \\(p \\approx 10^4\\) or higher. The defining feature of modern high-dimensional statistics is the regime where \\(p\\) is comparable to or much larger than \\(n\\).</p>
@@ -84,6 +92,14 @@ window.CHAPTERS.push({
             title: 'The Curse of Dimensionality',
             content: `
                 <h2>The Curse of Dimensionality</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>In the previous section, we saw that high-dimensional statistics requires fundamentally different tools from classical statistics. But <em>why</em> exactly do things go wrong? This section answers that question by examining three concrete geometric phenomena, collectively known as the curse of dimensionality, that make high-dimensional spaces hostile to naive statistical methods. Understanding these phenomena will motivate every tool we develop in later chapters.</p>
+                    </div>
+                </div>
+
 
                 <p>The term "curse of dimensionality" was coined by Richard Bellman in the 1960s to describe the exponential growth of computational cost in dynamic programming as the state-space dimension increases. In statistics and probability, it refers to a family of phenomena where high-dimensional geometry defies low-dimensional intuition. We examine three manifestations: volume ratios, distance concentration, and the failure of nearest-neighbor methods.</p>
 
@@ -346,6 +362,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Norms and Balls in \\(\\mathbb{R}^d\\)</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The curse of dimensionality showed us that volume and distance behave counterintuitively in high dimensions. To develop precise tools for these settings, we need to formalize the geometry of high-dimensional spaces. This section introduces the \(\ell_p\) norms and their unit balls, which serve as the geometric backbone for regularization methods (the Lasso uses the \(\ell_1\) ball, ridge regression uses the \(\ell_2\) ball) that we will study in depth starting in Chapter 8.</p>
+                    </div>
+                </div>
+
+
                 <p>The geometry of high-dimensional spaces depends critically on the choice of norm. The three most important norms in high-dimensional statistics are the \\(\\ell_1\\), \\(\\ell_2\\), and \\(\\ell_\\infty\\) norms, each encoding a different notion of "size" that becomes increasingly distinct as the dimension grows.</p>
 
                 <div class="env-block definition">
@@ -449,6 +473,14 @@ window.CHAPTERS.push({
             title: 'The Concentration Shell',
             content: `
                 <h2>The Concentration Shell</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>We have seen that high-dimensional balls have vanishing volume and that distances concentrate. Now we encounter the most remarkable phenomenon of all: in high dimensions, random vectors do not spread throughout the ball but instead concentrate on a thin <em>shell</em>. This concentration shell phenomenon is the geometric face of the concentration of measure, which forms the probabilistic foundation (Chapters 1-4) for the entire course.</p>
+                    </div>
+                </div>
+
 
                 <p>Perhaps the most striking phenomenon in high-dimensional probability is the <strong>concentration of measure</strong>: in high dimensions, random vectors are overwhelmingly likely to lie in a thin shell at a predictable distance from the origin. This is not a tail event; it is the <em>typical</em> behavior.</p>
 
@@ -776,6 +808,14 @@ window.CHAPTERS.push({
             title: 'The Non-Asymptotic Viewpoint',
             content: `
                 <h2>The Non-Asymptotic Viewpoint</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The geometric phenomena we have explored, vanishing volumes, distance concentration, the concentration shell, all point to a common conclusion: high-dimensional statistics demands precise, finite-sample guarantees rather than classical asymptotic arguments. This final section introduces the non-asymptotic viewpoint that underpins every result in this course, and previews how structural assumptions like sparsity can overcome the curse of dimensionality. With this foundation in place, we are ready to develop the concentration inequalities of Chapter 1.</p>
+                    </div>
+                </div>
+
 
                 <p>Classical statistics is built on asymptotic theory: we study the behavior of estimators as \\(n \\to \\infty\\) with the model (and hence \\(p\\)) held fixed. Results like the central limit theorem, asymptotic normality of the MLE, and the Wilks theorem are all statements about <em>limits</em>. In high-dimensional statistics, this framework is inadequate for two fundamental reasons.</p>
 

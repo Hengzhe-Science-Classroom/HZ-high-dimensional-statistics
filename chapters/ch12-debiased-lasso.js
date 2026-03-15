@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Bias Problem</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapter 8 showed that the Lasso achieves excellent estimation rates, and Chapter 11 introduced FDR control for multiple testing. But there is a gap: the Lasso estimates are <em>biased</em> due to \(\ell_1\) shrinkage, so we cannot directly use them for constructing confidence intervals or p-values. This chapter bridges that gap by developing the debiased (or desparsified) Lasso, which corrects the Lasso's bias to obtain asymptotically normal estimators with known variance. This enables valid confidence intervals, hypothesis tests, and simultaneous inference for individual coefficients in high-dimensional regression, connecting the estimation theory of Chapters 8-9 to the inferential framework of Chapter 11.</p>
+                    </div>
+                </div>
+
+
                 <p>In classical low-dimensional regression, the ordinary least squares (OLS) estimator \\(\\hat{\\beta}^{\\mathrm{OLS}} = (X^\\top X)^{-1}X^\\top y\\) is <strong>unbiased</strong>: \\(\\mathbb{E}[\\hat{\\beta}^{\\mathrm{OLS}}] = \\beta^*\\). This unbiasedness is the foundation of classical statistical inference &mdash; it enables us to construct confidence intervals, perform hypothesis tests, and compute p-values. But in the high-dimensional setting where \\(p \\gg n\\), OLS does not even exist (the matrix \\(X^\\top X\\) is singular), and we must turn to regularized estimators like the Lasso.</p>
 
                 <div class="env-block definition">
@@ -306,6 +314,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Debiased Lasso Construction</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The previous section demonstrated the bias problem: Lasso shrinkage prevents classical inference. The debiasing construction adds a carefully chosen correction term to the Lasso estimate, computed using an approximate inverse of the Gram matrix \(X^\top X / n\). The key insight is that even though \(X^\top X / n\) is singular when \(p > n\), we can construct a "good enough" approximate inverse using Lasso-type methods applied to each column of \(X\). This construction yields estimators whose bias is negligible, enabling asymptotic normality.</p>
+                    </div>
+                </div>
+
+
                 <p>The key idea of the <strong>debiased Lasso</strong> (also called the <strong>desparsified Lasso</strong>) is to add a one-step correction to the Lasso that removes the shrinkage bias, at the cost of slightly increased variance.</p>
 
                 <h3>The One-Step Correction</h3>
@@ -403,6 +419,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Node-Wise Regression: Constructing \\(\\hat{\\Theta}\\)</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The debiased Lasso requires an approximate inverse of the Gram matrix, which we construct via node-wise regression: for each predictor \(X_j\), we regress it on all other predictors using the Lasso, and use the residuals to build one row of the approximate inverse. This procedure connects to the graphical Lasso (Chapter 16), since the precision matrix \(\Sigma^{-1}\) encodes the partial correlations among predictors. Node-wise regression makes the debiased Lasso computationally practical: it requires solving \(p\) Lasso problems, each of dimension \(p - 1\).</p>
+                    </div>
+                </div>
+
+
                 <p>The debiased Lasso requires an approximate inverse \\(\\hat{\\Theta}\\) of \\(\\hat{\\Sigma} = X^\\top X / n\\). The <strong>node-wise Lasso</strong> (introduced by Meinshausen and Buhlmann, later refined by van de Geer et al.) provides an elegant, coordinate-by-coordinate construction.</p>
 
                 <h3>The Idea</h3>
@@ -495,6 +519,14 @@ window.CHAPTERS.push({
             title: 'Asymptotic Normality & CIs',
             content: `
                 <h2>Asymptotic Normality &amp; Confidence Intervals</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>With the debiased estimator and node-wise regression in hand, we can now state the main result: under appropriate sparsity conditions, the debiased Lasso estimator is asymptotically normal with a variance that can be consistently estimated. This enables the construction of valid confidence intervals and hypothesis tests for individual regression coefficients, even when \(p \gg n\). This section derives the asymptotic normality result, constructs confidence intervals, and discusses their coverage properties.</p>
+                    </div>
+                </div>
+
 
                 <p>We now state the main distributional result for the debiased Lasso and show how to construct valid confidence intervals for individual coordinates of \\(\\beta^*\\).</p>
 
@@ -784,6 +816,14 @@ window.CHAPTERS.push({
             title: 'Simultaneous Inference',
             content: `
                 <h2>Simultaneous Inference</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Confidence intervals for individual coefficients are useful, but many scientific questions require <em>simultaneous</em> inference: testing many coefficients at once while controlling the overall error rate. This section combines the debiased Lasso with the multiple testing framework from Chapter 11 to perform simultaneous inference, constructing honest simultaneous confidence bands and FDR-controlling procedures for regression coefficients. These results complete the debiased inference framework. However, the debiased Lasso assumes a fixed model; Chapter 13 addresses the more challenging setting where the model itself is selected from the data.</p>
+                    </div>
+                </div>
+
 
                 <p>So far we have considered inference for a <em>single</em> coordinate \\(\\beta^*_j\\). In practice, we often want to make simultaneous statements about <em>multiple</em> or <em>all</em> coordinates &mdash; for example, constructing confidence bands that cover the entire vector \\(\\beta^*\\) simultaneously.</p>
 

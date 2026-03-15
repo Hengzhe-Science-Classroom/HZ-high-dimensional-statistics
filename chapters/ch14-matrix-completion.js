@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Matrix Completion Problem</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapters 8-10 showed that sparsity can overcome the curse of dimensionality in regression. The same principle applies to matrices: a low-rank matrix in \(\mathbb{R}^{n_1 \times n_2}\) has \((n_1 + n_2)r\) degrees of freedom rather than \(n_1 n_2\), making recovery possible from far fewer observations. This chapter studies matrix completion, the problem of recovering a low-rank matrix from a subset of its entries, famously motivated by the Netflix Prize. We develop nuclear norm minimization (the matrix analogue of \(\ell_1\) minimization), prove recovery guarantees under incoherence conditions, and discuss practical algorithms. Matrix completion is the first of four chapters (14-17) on structured matrix estimation, extending the sparse estimation ideas of Chapters 8-10 to richer structural assumptions.</p>
+                    </div>
+                </div>
+
+
                 <p>Imagine a large matrix where most entries are missing. Can we fill in the blanks? At first glance, this seems hopelessly underdetermined: an \\(n_1 \\times n_2\\) matrix has \\(n_1 n_2\\) degrees of freedom, and if we observe only a small fraction of entries, there are infinitely many completions. The key insight is that if the underlying matrix has <strong>low rank</strong>, the problem becomes tractable.</p>
 
                 <h3>The Netflix Problem</h3>
@@ -396,6 +404,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Nuclear Norm Minimization</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The matrix completion problem is ill-posed without a structural assumption, just as sparse regression is ill-posed without sparsity. Low rank is the natural assumption for matrices, and the nuclear norm (sum of singular values) plays the same role for low-rank recovery that the \(\ell_1\) norm plays for sparse recovery: it is the tightest convex relaxation of the rank function. This section develops nuclear norm minimization, its geometric properties, and the duality theory that connects it to the matrix decomposition.</p>
+                    </div>
+                </div>
+
+
                 <p>The rank minimization problem is NP-hard, just as the \\(\\ell_0\\) minimization problem in sparse recovery is NP-hard. The breakthrough idea, due to Fazel (2002) and later developed by Cand&egrave;s and Recht (2009), is to relax the rank function to the <strong>nuclear norm</strong>, analogous to the \\(\\ell_1\\) relaxation of \\(\\ell_0\\) in compressed sensing.</p>
 
                 <h3>The Nuclear Norm</h3>
@@ -683,6 +699,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Recovery Guarantees</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Nuclear norm minimization provides a computationally tractable approach to matrix completion. But does it actually recover the true low-rank matrix? This section proves that under incoherence conditions (which prevent the low-rank matrix from being too "spiky") and with enough randomly observed entries, nuclear norm minimization recovers the true matrix exactly. The proof relies on the concentration and covering number tools from Chapters 1-4, and the structure of the argument mirrors the Lasso oracle inequality of Chapter 8: a basic inequality plus a restricted strong convexity condition.</p>
+                    </div>
+                </div>
+
+
                 <p>We now state the celebrated exact recovery theorem for matrix completion via nuclear norm minimization. This result, due to Cand&egrave;s and Recht (2009) with refinements by Cand&egrave;s and Tao (2010) and Recht (2011), is one of the crown jewels of modern high-dimensional statistics.</p>
 
                 <h3>Exact Recovery in the Noiseless Case</h3>
@@ -963,6 +987,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Algorithms for Matrix Completion</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The recovery guarantees establish the statistical theory; now we need efficient algorithms. Nuclear norm minimization can be cast as a semidefinite program, but this is too slow for large-scale problems (the Netflix matrix is 480,000 by 17,770). This section develops faster alternatives: proximal gradient descent with singular value thresholding, alternating minimization that directly optimizes over the low-rank factors, and stochastic gradient descent methods. These algorithms connect to the computational framework of Chapter 10, extending coordinate descent and ADMM ideas to the matrix setting.</p>
+                    </div>
+                </div>
+
+
                 <p>While nuclear norm minimization provides strong theoretical guarantees, solving the SDP directly has complexity \\(O(n^{4.5})\\) or worse, which is prohibitive for large-scale problems (Netflix has \\(n \\sim 10^5\\) users and movies). Scalable algorithms are essential for practice.</p>
 
                 <h3>Singular Value Thresholding (SVT)</h3>
@@ -1087,6 +1119,14 @@ window.CHAPTERS.push({
             title: 'Applications',
             content: `
                 <h2>Applications and Practical Considerations</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>This section brings matrix completion to life through applications: recommender systems (the Netflix Prize), sensor network localization, and survey data imputation. These applications illustrate how the abstract theory of nuclear norm minimization and incoherence conditions translate into practical methodology. The low-rank structure exploited here reappears in different guises in the remaining chapters: as a signal subspace in PCA (Chapter 15), as the sparse+low-rank decomposition in robust PCA (Chapter 17), and as the structural assumption governing minimax rates (Chapter 18).</p>
+                    </div>
+                </div>
+
 
                 <h3>Collaborative Filtering</h3>
 

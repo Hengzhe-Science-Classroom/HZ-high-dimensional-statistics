@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Coordinate Descent for the Lasso</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapters 8-9 developed the statistical theory of the Lasso and its variants: oracle inequalities, restricted eigenvalue conditions, and the properties of different penalties. But a theory without efficient algorithms is incomplete. This chapter bridges the gap between statistical theory and computational practice by studying the algorithms that solve these optimization problems: coordinate descent, proximal gradient methods (ISTA and FISTA), ADMM, and cross-validation for tuning parameter selection. We also briefly discuss Bayesian approaches to sparsity. These algorithms are the workhorses of modern high-dimensional data analysis.</p>
+                    </div>
+                </div>
+
+
                 <p>Having established the statistical properties of the Lasso estimator in previous chapters, we now turn to the fundamental computational question: <strong>how do we actually solve the Lasso?</strong></p>
 
                 <p>The Lasso optimization problem is:</p>
@@ -387,6 +395,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Proximal Gradient Methods: ISTA and FISTA</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Coordinate descent is fast for the standard Lasso but does not easily generalize to group Lasso, nuclear norm, or other structured penalties. Proximal gradient methods provide a unified algorithmic framework: they handle any problem of the form "smooth loss + non-smooth penalty" by alternating gradient steps on the smooth part with a proximal (soft-thresholding) step on the penalty. The accelerated variant FISTA improves the convergence rate from \(O(1/k)\) to \(O(1/k^2)\), where \(k\) is the iteration count.</p>
+                    </div>
+                </div>
+
+
                 <p>Coordinate descent updates one variable at a time. An alternative family of methods updates <strong>all coordinates simultaneously</strong> using the proximal gradient framework. These methods are especially well-suited when the objective decomposes as:</p>
                 \\[F(\\beta) = g(\\beta) + h(\\beta)\\]
                 <p>where \\(g\\) is smooth (differentiable with Lipschitz gradient) and \\(h\\) is convex but possibly non-smooth.</p>
@@ -725,6 +741,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Alternating Direction Method of Multipliers (ADMM)</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Proximal gradient methods work well when the proximal operator (the penalty's "thresholding" step) has a closed-form solution. For more complex problems involving constraints, multiple penalties, or distributed computation, the Alternating Direction Method of Multipliers (ADMM) provides a flexible decomposition framework. ADMM splits the optimization into simpler subproblems that can often be solved in closed form, and it has become the standard algorithm for matrix completion (Chapter 14), robust PCA (Chapter 17), and the graphical Lasso (Chapter 16).</p>
+                    </div>
+                </div>
+
+
                 <p>While proximal gradient methods exploit the composite structure \\(g + h\\), the <strong>Alternating Direction Method of Multipliers (ADMM)</strong> is a powerful framework for problems that can be written with linear constraints. It is particularly useful for <strong>constrained formulations</strong> of the Lasso and for distributed optimization.</p>
 
                 <h3>ADMM Framework</h3>
@@ -845,6 +869,14 @@ window.CHAPTERS.push({
             title: 'Regularization Path & Cross-Validation',
             content: `
                 <h2>Regularization Path and Cross-Validation</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Coordinate descent, proximal gradient, and ADMM solve the Lasso for a <em>fixed</em> value of \(\lambda\). In practice, we need to select \(\lambda\), which requires evaluating the estimator across a range of regularization strengths. This section studies the regularization path (how the Lasso solution changes as \(\lambda\) varies) and cross-validation (the standard data-driven method for choosing \(\lambda\)). Understanding these tools is essential for applying sparse estimation methods in real data analysis.</p>
+                    </div>
+                </div>
+
 
                 <p>In practice, the Lasso is not solved at a single value of \\(\\lambda\\); rather, we compute solutions over a <strong>grid of \\(\\lambda\\) values</strong> and use cross-validation to select the best one. The efficiency of this process is crucial for practical deployment.</p>
 
@@ -1228,6 +1260,14 @@ window.CHAPTERS.push({
             title: 'Bayesian Sparse Estimation',
             content: `
                 <h2>Bayesian Sparse Estimation</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The frequentist perspective views the Lasso as a penalized optimization problem. The Bayesian perspective offers a complementary view: the Lasso is the posterior mode under a Laplace prior on the coefficients. This section explores Bayesian sparse estimation, including spike-and-slab priors, the horseshoe prior, and variational Bayes methods. These Bayesian approaches provide natural uncertainty quantification (credible intervals) and connect to the debiased inference methods of Chapter 12. With the computational toolkit now complete, Chapter 11 shifts to the inference challenge: controlling false discoveries when testing many hypotheses simultaneously.</p>
+                    </div>
+                </div>
+
 
                 <p>The frequentist Lasso has deep connections to Bayesian estimation. In the Bayesian framework, the regularization parameter and the sparsity structure emerge naturally from the choice of <strong>prior distribution</strong> on the coefficient vector \\(\\beta\\).</p>
 

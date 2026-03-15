@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Selective Inference Problem</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapter 12 showed how to construct valid confidence intervals for regression coefficients using the debiased Lasso. But in practice, researchers often <em>first</em> use the Lasso to select a model (which variables are nonzero), and <em>then</em> want to test or build confidence intervals for the selected variables. Using the same data for both selection and inference invalidates classical p-values. This chapter tackles this "double dipping" problem through two powerful frameworks: selective inference (which conditions on the selection event) and the knockoff filter (which constructs synthetic control variables). These methods provide valid inference after model selection, completing the high-dimensional inference arc of Chapters 11-13.</p>
+                    </div>
+                </div>
+
+
                 <p>In classical statistics, we formulate a hypothesis <em>before</em> looking at the data, collect observations, and then test that hypothesis. The resulting p-values and confidence intervals have their advertised coverage properties precisely because the hypothesis was fixed in advance.</p>
 
                 <p>But modern high-dimensional practice breaks this contract. When \\(p \\gg n\\), we routinely use data-driven procedures &mdash; the Lasso, stepwise regression, marginal screening &mdash; to <strong>select</strong> which variables to include in a model, and then perform inference (p-values, confidence intervals) on the <em>same data</em> that was used for selection. This creates a fundamental statistical problem.</p>
@@ -302,6 +310,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Polyhedral Lemma: Conditioning on Lasso Selection</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The previous section showed that naive p-values after model selection are anti-conservative. The polyhedral lemma provides the fix: because the Lasso selection event \(\{\hat{S} = S\}\) can be written as a polyhedral constraint on the response \(Y\), we can condition on this event and compute the exact conditional distribution of any test statistic. This conditional distribution is a truncated Gaussian, from which we obtain valid post-selection p-values and confidence intervals. The polyhedral lemma transforms the selective inference problem from an impossibility into a tractable computation.</p>
+                    </div>
+                </div>
+
+
                 <p>The key insight of Lee, Sun, Sun, and Taylor (2016) is that for the Lasso, the event "the Lasso selects model \\(M\\) with signs \\(s\\)" can be expressed as a <strong>polyhedral constraint</strong> on \\(y\\). This makes it possible to derive the exact conditional distribution of any linear functional of \\(y\\) given that the Lasso selected a particular model.</p>
 
                 <h3>The Lasso Selection Event</h3>
@@ -557,6 +573,14 @@ window.CHAPTERS.push({
             title: 'The Knockoff Filter',
             content: `
                 <h2>The Knockoff Filter</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Selective inference via the polyhedral lemma conditions on the selection event, which can be computationally expensive and statistically conservative for complex selection procedures. The knockoff filter takes a fundamentally different approach: instead of conditioning, it creates synthetic "knockoff" variables that mimic the correlation structure of the original predictors but are independent of the response. By comparing each variable to its knockoff, we obtain a variable importance measure with built-in FDR control. This elegant idea connects to the permutation testing tradition while providing rigorous finite-sample FDR guarantees.</p>
+                    </div>
+                </div>
+
 
                 <p>The knockoff filter, introduced by Barber and Cand&egrave;s (2015), takes a completely different approach to post-selection inference. Instead of conditioning on the selection event, it constructs <strong>synthetic decoy variables</strong> &mdash; called <em>knockoffs</em> &mdash; that mimic the correlation structure of the original features but are independent of the response. By comparing how strongly the model relies on the originals versus the knockoffs, we can separate real signals from noise while controlling the false discovery rate.</p>
 
@@ -837,6 +861,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Model-X Knockoffs: Distribution-Free FDR Control</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The original knockoff filter assumes a fixed design matrix and a Gaussian linear model. Model-X knockoffs generalize this dramatically: they work for <em>any</em> response distribution (no linearity or Gaussianity assumed), requiring only knowledge of (or a good model for) the joint distribution of the predictors. This section develops the Model-X framework, which has become the dominant approach to knockoff-based variable selection. The shift from "model the response" to "model the covariates" connects to modern machine learning, where flexible models for the conditional distribution \(Y | X\) are combined with knockoff-based FDR control.</p>
+                    </div>
+                </div>
+
+
                 <p>The fixed-X knockoff filter of Section 3 requires \\(n \\geq 2p\\), which is a severe limitation in high-dimensional settings. The <strong>model-X knockoff framework</strong> (Cand&egrave;s, Fan, Janson, and Lv, 2018) overcomes this by leveraging the <em>distribution of the covariates</em> rather than the geometry of the design matrix.</p>
 
                 <h3>The Model-X Framework</h3>
@@ -931,6 +963,14 @@ window.CHAPTERS.push({
             title: 'Knockoff Statistics & Threshold',
             content: `
                 <h2>Knockoff Statistics and the FDR Threshold</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Model-X knockoffs provide the framework; this section fills in the details. How do we choose the knockoff statistic that compares each variable to its knockoff? How do we set the rejection threshold to control FDR? This section develops the knockoff+ threshold (which provides finite-sample FDR control) and discusses practical choices of knockoff statistics including Lasso coefficient differences and random forest importance scores. With the inference toolbox of Chapters 11-13 complete, Chapter 14 begins the final estimation arc: recovering structured objects (low-rank matrices, covariance matrices, graphical models) in high dimensions.</p>
+                    </div>
+                </div>
+
 
                 <p>The power of the knockoff filter depends on two ingredients: the choice of <strong>knockoff statistic</strong> \\(W_j\\), which measures the importance of each variable relative to its knockoff, and the <strong>threshold</strong> \\(\\tau\\), which determines which variables to select.</p>
 

@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Random Matrix Ensembles</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>With the probabilistic toolkit of Chapters 1-4 in hand, we now enter the world of random matrix theory (RMT). While Chapters 1-4 focused on concentration for scalars and vectors, this chapter and the next two study the <em>spectral</em> behavior of random matrices, which governs PCA, covariance estimation, and many other high-dimensional procedures. We begin with the simplest and most beautiful setting: symmetric random matrices with i.i.d. entries (Wigner matrices), whose eigenvalue distribution converges to the semicircle law. This chapter introduces random matrix ensembles, the empirical spectral distribution, the semicircle law, and its proof via the moment method.</p>
+                    </div>
+                </div>
+
+
                 <p>Random matrix theory is one of the most beautiful areas of modern mathematics, sitting at the crossroads of probability, combinatorics, and mathematical physics. The central question is deceptively simple: <em>what do the eigenvalues of a large random matrix look like?</em></p>
 
                 <p>We begin by defining the fundamental object of study in this chapter.</p>
@@ -108,6 +116,14 @@ window.CHAPTERS.push({
             title: 'Empirical Spectral Distribution',
             content: `
                 <h2>Empirical Spectral Distribution</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Having introduced the main random matrix ensembles, we now formalize the central object of study: the empirical spectral distribution (ESD), which is the discrete probability measure placing equal mass on each eigenvalue. Just as the empirical distribution of data converges to the population distribution, the ESD of a large random matrix converges to a deterministic limiting distribution. This section defines the ESD, introduces the Stieltjes transform as its analytic companion, and sets the stage for the semicircle law.</p>
+                    </div>
+                </div>
+
 
                 <p>To study the collective behavior of eigenvalues, we introduce the empirical spectral distribution (ESD) -- a random probability measure that summarizes the entire spectrum of a matrix in a single object.</p>
 
@@ -478,6 +494,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Semicircle Law</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>We arrive at the first landmark result of random matrix theory: Wigner's semicircle law, which states that the eigenvalues of a properly normalized Wigner matrix are distributed according to a semicircular density on \([-2, 2]\). This is the random matrix analogue of the central limit theorem: just as the CLT says that sums of independent random variables converge to the Gaussian distribution, the semicircle law says that eigenvalues of symmetric random matrices converge to the semicircle distribution. Understanding this law is essential for the Marchenko-Pastur law (Chapter 6) and the spiked models (Chapter 7) that govern high-dimensional PCA.</p>
+                    </div>
+                </div>
+
+
                 <p>We now state the main result of this chapter: Wigner's semicircle law. It asserts that the empirical spectral distribution of a normalized Wigner matrix converges to a universal limiting distribution -- the <strong>semicircle distribution</strong> -- regardless of the specific entry distribution.</p>
 
                 <div class="env-block definition">
@@ -589,6 +613,14 @@ window.CHAPTERS.push({
             title: 'Proof via Moment Method',
             content: `
                 <h2>Proof via the Moment Method</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The semicircle law is a deep result, but its proof via the moment method is remarkably elegant and reveals the combinatorial structure underlying random matrix theory. The key idea is to compute \(\mathbb{E}[\operatorname{tr}(W^k)]\) for increasing \(k\), reducing the problem to counting closed walks on graphs. Only non-crossing pair partitions (counted by Catalan numbers) contribute in the limit, and these are precisely the moments of the semicircle distribution. This combinatorial connection between random matrices and free probability theory has far-reaching consequences.</p>
+                    </div>
+                </div>
+
 
                 <p>We now prove Wigner's semicircle law (in the expected, or "in probability," sense) using the <strong>moment method</strong>. The strategy is:</p>
                 <ol>
@@ -909,6 +941,14 @@ window.CHAPTERS.push({
             title: 'Beyond the Semicircle',
             content: `
                 <h2>Beyond the Semicircle: Fluctuations and Universality</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The semicircle law describes the bulk eigenvalue distribution, but many statistical questions depend on the <em>extreme</em> eigenvalues: the largest and smallest. This section explores what lies beyond the semicircle: the Tracy-Widom distribution for extreme eigenvalues, universality results showing that the semicircle law holds far beyond the Gaussian case, and the connection between Wigner matrices and the sample covariance matrices we encounter in statistics. These results set the stage for Chapter 6 (Marchenko-Pastur law for sample covariance) and Chapter 7 (spiked models and phase transitions).</p>
+                    </div>
+                </div>
+
 
                 <p>The semicircle law describes the <em>bulk</em> behavior of eigenvalues: the macroscopic shape of the spectral distribution. But what about the <em>fine structure</em>? In this section, we explore the fluctuations around the semicircle law, the behavior of extreme eigenvalues, and the remarkable universality phenomena that extend far beyond the GOE.</p>
 

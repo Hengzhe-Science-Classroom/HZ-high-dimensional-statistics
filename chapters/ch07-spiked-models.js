@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Spiked Covariance Model</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapter 6 showed that in the proportional regime, sample eigenvalues are systematically distorted by the Marchenko-Pastur law. The natural next question is: if the population covariance has a few "spiked" eigenvalues (signals) above a noise floor, can we detect and estimate them from the sample eigenvalues? This chapter reveals a remarkable phase transition: signals are detectable only when their strength exceeds a critical threshold \(\sqrt{\gamma}\). We study the BBP (Baik-Ben Arous-P\&#233;ch\&#233;) phase transition, the behavior of eigenvalues and eigenvectors above and below the threshold, the Tracy-Widom distribution governing fluctuations at the edge, and the implications for statistical testing. This chapter completes the random matrix theory arc (Chapters 5-7) and motivates the structured estimation methods of Chapters 8-17.</p>
+                    </div>
+                </div>
+
+
                 <p>In classical statistics, principal component analysis (PCA) is the workhorse for dimensionality reduction. Given \\(n\\) samples from a \\(p\\)-dimensional distribution, we compute the sample covariance matrix and examine its eigenvalues: large eigenvalues indicate directions of high variance, which we interpret as <strong>signal</strong>.</p>
 
                 <p>But what happens when \\(p\\) is comparable to \\(n\\)? The Marchenko-Pastur law (Chapter 6) taught us that even when the population covariance is \\(\\Sigma = I_p\\) (pure noise), the sample eigenvalues spread out over a wide interval \\([(1-\\sqrt{\\gamma})^2,\\,(1+\\sqrt{\\gamma})^2]\\), where \\(\\gamma = p/n\\). This creates a fundamental challenge: how can we distinguish genuine signal from the spurious spread of noise eigenvalues?</p>
@@ -81,6 +89,14 @@ window.CHAPTERS.push({
             title: 'BBP Phase Transition',
             content: `
                 <h2>The BBP Phase Transition</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Having introduced the spiked covariance model, we now state its most striking property: the BBP phase transition. When the signal strength \(\lambda\) exceeds the critical threshold \(\sqrt{\gamma}\), the largest sample eigenvalue "pops out" of the Marchenko-Pastur bulk and converges to a deterministic limit that depends on \(\lambda\). Below the threshold, the signal is completely invisible in the sample eigenvalues. This sharp phase transition is the foundation for understanding when PCA can and cannot work in high dimensions.</p>
+                    </div>
+                </div>
+
 
                 <p>The Baik-Ben Arous-Peche (BBP) phase transition is one of the most striking discoveries in high-dimensional statistics. It reveals that there is a <strong>sharp threshold</strong> for spike detection: spikes below the threshold are invisible to PCA, while spikes above it produce detectable outlier eigenvalues.</p>
 
@@ -457,6 +473,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Eigenvalue and Eigenvector Behavior Above and Below Threshold</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The BBP transition tells us when the top eigenvalue separates from the bulk. But for PCA, we care not only about eigenvalues but also about <em>eigenvectors</em>: do the sample eigenvectors point in the right direction? This section shows that above the BBP threshold, the sample eigenvector has a nonzero (but shrunken) inner product with the true signal direction, while below the threshold, the sample eigenvector is essentially orthogonal to the signal. These results quantify the fundamental limits of PCA and motivate the debiasing and sparse PCA methods of Chapters 12 and 15.</p>
+                    </div>
+                </div>
+
+
                 <p>The BBP transition determines not only <em>whether</em> the spike is detected, but also <em>how well</em> PCA estimates the spike strength and direction. In this section, we give precise quantitative results for both the eigenvalue and eigenvector behavior in the two regimes.</p>
 
                 <h3>Eigenvalue Behavior</h3>
@@ -556,6 +580,14 @@ window.CHAPTERS.push({
             title: 'Tracy-Widom Distribution',
             content: `
                 <h2>The Tracy-Widom Distribution</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The BBP transition describes what happens in the limit \(n, p \to \infty\). For finite samples, we need to understand the <em>fluctuations</em> of the largest eigenvalue around its limiting value. The Tracy-Widom distribution, one of the most celebrated discoveries in modern probability, governs these fluctuations. Originally discovered in the context of the GUE, it turns out to be universal: the same distribution appears for Wigner matrices, Wishart matrices, and even non-Gaussian entries. This section develops the Tracy-Widom distribution and its role in random matrix theory.</p>
+                    </div>
+                </div>
+
 
                 <p>In the null case (no spikes, \\(\\Sigma = I_p\\)), the Marchenko-Pastur law tells us that the bulk of the eigenvalues of \\(\\hat{\\Sigma}\\) converges to a deterministic distribution. But what about the <strong>fluctuations</strong> of the largest eigenvalue \\(\\hat{\\lambda}_1\\) around the right edge \\((1+\\sqrt{\\gamma})^2\\)?</p>
 
@@ -954,6 +986,14 @@ window.CHAPTERS.push({
             title: 'Statistical Testing',
             content: `
                 <h2>Statistical Testing: Detecting Signal in High-Dimensional PCA</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The BBP transition and Tracy-Widom fluctuations provide the theoretical foundation; this section translates them into practical statistical procedures. How do we test whether a signal eigenvalue is present? How do we estimate the number of signals? The Roy test, based on the largest eigenvalue, uses the Tracy-Widom distribution for its null distribution, while the BBP threshold guides our intuition about power. These testing procedures connect the random matrix theory of Chapters 5-7 to the broader inferential framework of the course. With RMT now complete, Chapter 8 shifts focus to the second major arc: sparse estimation via the Lasso.</p>
+                    </div>
+                </div>
+
 
                 <p>The theoretical results of the preceding sections have direct statistical consequences. We now formalize the problem of testing for the presence of a signal (spike) in a high-dimensional dataset.</p>
 

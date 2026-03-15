@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The High-Dimensional Regime &mdash; \\(p/n \\to \\gamma\\)</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapter 5 introduced the semicircle law for Wigner (symmetric) matrices. In statistics, however, the fundamental object is not a symmetric random matrix but the <em>sample covariance matrix</em> \(\hat{\Sigma} = n^{-1} X^\top X\). When \(p/n \to \gamma > 0\), the eigenvalues of \(\hat{\Sigma}\) no longer converge to the population eigenvalues but instead follow the Marchenko-Pastur distribution. This chapter derives this law, introduces the Stieltjes transform method, and explores the implications for PCA and covariance estimation. Understanding when and how the sample eigenvalues distort the population eigenvalues is essential for the spiked models in Chapter 7 and the high-dimensional PCA methods of Chapter 15.</p>
+                    </div>
+                </div>
+
+
                 <p>Classical multivariate statistics operates under the assumption that the number of observations \\(n\\) vastly exceeds the dimension \\(p\\) of the data. In this comfortable regime, the <strong>sample covariance matrix</strong> is an excellent estimator of the population covariance. But what happens when \\(p\\) is comparable to, or even larger than, \\(n\\)?</p>
 
                 <div class="env-block definition">
@@ -444,6 +452,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Marchenko-Pastur Distribution</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The previous section showed empirically that sample eigenvalues systematically differ from population eigenvalues in the proportional regime. Now we derive the precise limiting distribution. The Marchenko-Pastur law, the random matrix analogue of the central limit theorem for sample covariance matrices, gives an explicit density for the limiting spectral distribution as a function of the aspect ratio \(\gamma = p/n\). This density reveals that sample eigenvalues are <em>spread out</em> relative to the population eigenvalues, with a specific support determined by \(\gamma\).</p>
+                    </div>
+                </div>
+
+
                 <p>The <strong>Marchenko-Pastur law</strong>, discovered by Vladimir Marchenko and Leonid Pastur in 1967, describes the limiting spectral distribution of sample covariance matrices in the proportional growth regime. It is the covariance analogue of Wigner's semicircle law.</p>
 
                 <div class="env-block theorem">
@@ -557,6 +573,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Stieltjes Transform Method</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>We stated the Marchenko-Pastur law in the previous section; now we develop the Stieltjes transform method used to prove it. The Stieltjes transform converts the spectral distribution into an analytic function satisfying a fixed-point equation, which can be solved explicitly. This powerful technique generalizes to non-identity population covariances and forms the backbone of modern random matrix theory. The same method will reappear in Chapter 7 when we study spiked models.</p>
+                    </div>
+                </div>
+
+
                 <p>The standard approach to proving the Marchenko-Pastur law uses the <strong>Stieltjes transform</strong>, which converts the problem of characterizing a probability measure into analyzing a complex-analytic function.</p>
 
                 <div class="env-block definition">
@@ -646,6 +670,14 @@ window.CHAPTERS.push({
             title: 'Implications for PCA',
             content: `
                 <h2>Implications for PCA &mdash; Eigenvalue Bias</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The Marchenko-Pastur law tells us the bulk behavior of sample eigenvalues, but for PCA the crucial question is: can we distinguish signal eigenvalues from noise eigenvalues? This section translates the Marchenko-Pastur theory into concrete implications for PCA in the proportional regime: eigenvalue bias, inconsistency of sample eigenvectors, and the failure of classical scree plots. These failures motivate the spiked covariance model (Chapter 7) and the sparse PCA methods of Chapter 15.</p>
+                    </div>
+                </div>
+
 
                 <p>Principal Component Analysis (PCA) relies on sample eigenvalues to estimate the variance explained by each principal direction. The Marchenko-Pastur law reveals that in high dimensions, sample eigenvalues are <strong>fundamentally biased</strong> estimators of population eigenvalues.</p>
 
@@ -970,6 +1002,14 @@ window.CHAPTERS.push({
             title: 'Edge Statistics',
             content: `
                 <h2>Edge Statistics &mdash; The Bai-Yin Theorem</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The Marchenko-Pastur law describes the bulk eigenvalue distribution, but statistical testing for the number of signals requires understanding the behavior of the <em>largest</em> eigenvalue. This section studies the edge of the Marchenko-Pastur distribution: how the largest sample eigenvalue fluctuates around the upper edge \((1 + \sqrt{\gamma})^2\), leading to the Tracy-Widom distribution for the edge fluctuations. These results connect directly to the BBP phase transition in Chapter 7, which determines when a signal eigenvalue can be detected above the noise bulk.</p>
+                    </div>
+                </div>
+
 
                 <p>While the Marchenko-Pastur law describes the <em>bulk</em> of the eigenvalue distribution, applications in hypothesis testing and signal detection require precise knowledge of the <em>extreme</em> eigenvalues. The Bai-Yin theorem pins down their almost sure limits.</p>
 

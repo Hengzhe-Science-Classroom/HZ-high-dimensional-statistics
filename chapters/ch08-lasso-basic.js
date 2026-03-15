@@ -25,6 +25,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Sparsity Assumption</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>We now begin the second major arc of the course: sparse estimation. Chapter 0 showed that without structural assumptions, consistent estimation is impossible when \(p \gg n\). The most powerful such assumption is <em>sparsity</em>: the true parameter vector has only \(s \ll p\) nonzero entries. This chapter introduces the Lasso estimator, which performs estimation and variable selection simultaneously via \(\ell_1\) regularization. We develop the basic inequality, the restricted eigenvalue condition (which connects back to the covering numbers of Chapter 4), and the oracle inequality showing that the Lasso achieves the rate \(s \log p / n\). This chapter provides the theoretical foundation for the variants and extensions in Chapter 9 and the computational methods in Chapter 10.</p>
+                    </div>
+                </div>
+
+
                 <p>We work in the linear model</p>
                 \\[y = X\\beta^* + w, \\qquad w \\sim \\mathcal{N}(0, \\sigma^2 I_n),\\]
                 <p>where \\(X \\in \\mathbb{R}^{n \\times p}\\) is the design matrix, \\(\\beta^* \\in \\mathbb{R}^p\\) is the unknown parameter vector, and \\(w \\in \\mathbb{R}^n\\) is noise.  We are interested in the <strong>high-dimensional regime</strong> where \\(p \\gg n\\): the number of parameters far exceeds the number of observations.</p>
@@ -277,6 +285,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Lasso Estimator</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The sparsity assumption tells us what we hope to exploit; the Lasso estimator tells us <em>how</em>. By adding an \(\ell_1\) penalty to the least squares objective, the Lasso encourages sparse solutions. The geometry is elegant: the \(\ell_1\) ball has corners aligned with the coordinate axes, so the intersection of the \(\ell_1\) ball with the least squares contours naturally produces solutions with many zero coordinates. This section defines the Lasso, develops its geometric intuition, and introduces the key analytical tools needed for its theoretical analysis.</p>
+                    </div>
+                </div>
+
+
                 <p>Having identified the L1 norm as the convex relaxation of the L0 "norm," we arrive at the central object of this chapter.</p>
 
                 <div class="env-block definition">
@@ -390,6 +406,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Basic Inequality</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>With the Lasso defined, we begin its theoretical analysis. The basic inequality is the starting point: it constrains the estimation error \(\hat{\beta} - \beta^*\) to lie in a restricted cone determined by the sparsity pattern of \(\beta^*\). This cone constraint is the key structural consequence of the \(\ell_1\) penalty and reduces the high-dimensional estimation problem to controlling the behavior of the design matrix \(X\) on a low-dimensional cone, setting the stage for the restricted eigenvalue condition.</p>
+                    </div>
+                </div>
+
+
                 <p>We now begin the theoretical analysis of the Lasso.  The first step is a <strong>deterministic</strong> inequality that holds for any design matrix \\(X\\), any noise vector \\(w\\), and any true parameter \\(\\beta^*\\).  It requires no probabilistic assumptions.</p>
 
                 <h3>The Error Vector and Notation</h3>
@@ -498,6 +522,14 @@ window.CHAPTERS.push({
             title: 'Restricted Eigenvalue Condition',
             content: `
                 <h2>Restricted Eigenvalue Condition</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The basic inequality showed that the Lasso error lies in a restricted cone. To convert this geometric constraint into an estimation bound, we need the design matrix \(X\) to behave well on this cone, meaning it should not have near-zero eigenvalues in the restricted directions. The restricted eigenvalue (RE) condition formalizes this requirement. Verifying the RE condition for random designs uses exactly the covering number and concentration tools from Chapters 3-4, closing the loop between the probabilistic toolkit and sparse estimation theory.</p>
+                    </div>
+                </div>
+
 
                 <p>The basic inequality and cone condition tell us that \\(\\hat{\\delta}\\) is well-behaved in an L1 sense, but we want to control the L2 estimation error \\(\\|\\hat{\\delta}\\|_2\\).  For this, we need the design matrix \\(X\\) to satisfy a condition that prevents the quadratic form \\(\\|X\\hat{\\delta}\\|_2^2\\) from being too small relative to \\(\\|\\hat{\\delta}\\|_2^2\\) — but only for vectors \\(\\hat{\\delta}\\) in the cone.</p>
 
@@ -817,6 +849,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Oracle Inequality</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Combining the basic inequality with the restricted eigenvalue condition, we now derive the Lasso's oracle inequality: the Lasso achieves estimation error of order \(\sigma^2 s \log p / n\), matching (up to the \(\log p\) factor) the performance of an oracle who knows the true support of \(\beta^*\). This is the central result of sparse estimation theory and justifies the use of \(\ell_1\) regularization in high-dimensional regression. The oracle inequality also reveals the role of the tuning parameter \(\lambda\), which we discuss next.</p>
+                    </div>
+                </div>
+
+
                 <p>We now assemble the basic inequality, the cone condition, and the restricted eigenvalue condition to prove the main result: the Lasso achieves near-oracle estimation rates.</p>
 
                 <div class="env-block definition">
@@ -1135,6 +1175,14 @@ window.CHAPTERS.push({
             title: 'Choosing lambda',
             content: `
                 <h2>Choosing \\(\\lambda\\)</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The oracle inequality guarantees excellent performance <em>provided</em> the regularization parameter \(\lambda\) is chosen appropriately: large enough to dominate the noise but small enough to avoid excessive shrinkage. This section discusses the theoretical choice \(\lambda \asymp \sigma \sqrt{\log p / n}\) and practical methods (cross-validation, the universal threshold) for selecting \(\lambda\) in real applications. The dependence of \(\lambda\) on the unknown noise level \(\sigma\) motivates the square-root Lasso and scaled Lasso variants that we will study in Chapter 9.</p>
+                    </div>
+                </div>
+
 
                 <p>The Lasso's performance depends critically on the choice of the regularization parameter \\(\\lambda\\).  Too small a \\(\\lambda\\) leads to overfitting (too many variables selected); too large a \\(\\lambda\\) leads to underfitting (true signals killed).</p>
 

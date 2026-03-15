@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Dantzig Selector &amp; Square-Root Lasso</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapter 8 established the basic theory of the Lasso: the \(\ell_1\)-penalized estimator achieves near-oracle performance under the restricted eigenvalue condition. However, the standard Lasso has limitations: it requires knowledge of the noise level \(\sigma\), it struggles with correlated predictors, and it treats all variables as individuals rather than in groups. This chapter addresses these limitations by introducing the Dantzig selector and square-root Lasso (which are pivot-free), the elastic net (which handles correlations), the group Lasso (which exploits group structure), and non-convex penalties like SCAD and MCP (which reduce bias). Each variant trades off different aspects of the bias-variance-computation tradeoff.</p>
+                    </div>
+                </div>
+
+
                 <p>In Chapter 8 we studied the Lasso estimator, which regularizes least-squares by adding an \\\\(\\\\ell_1\\\\) penalty. The Lasso requires choosing a tuning parameter \\\\(\\\\lambda\\\\) that depends on the unknown noise level \\\\(\\\\sigma\\\\). In this section we introduce two <strong>pivotal</strong> alternatives whose theoretical guarantees do not require knowledge of \\\\(\\\\sigma\\\\).</p>
 
                 <h3>The Dantzig Selector</h3>
@@ -139,6 +147,14 @@ window.CHAPTERS.push({
             title: 'Elastic Net',
             content: `
                 <h2>Elastic Net</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The Dantzig selector and square-root Lasso solved the noise calibration problem. The elastic net addresses a different limitation: when predictors are highly correlated, the Lasso tends to select one predictor from each correlated group and ignore the rest, leading to unstable variable selection. By blending \(\ell_1\) and \(\ell_2\) penalties, the elastic net encourages correlated predictors to be selected together while still maintaining sparsity. This "best of both worlds" approach is especially useful in genomics, where gene expression levels are often highly correlated.</p>
+                    </div>
+                </div>
+
 
                 <p>The Lasso has a well-known limitation: when predictors are highly correlated (forming groups), the Lasso tends to select only one predictor from each group and ignore the rest. The <strong>elastic net</strong> (Zou and Hastie, 2005) addresses this by combining \\\\(\\\\ell_1\\\\) and \\\\(\\\\ell_2\\\\) penalties.</p>
 
@@ -597,6 +613,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Group Lasso</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The Lasso and elastic net treat each predictor individually. But in many applications, predictors come in natural groups: dummy variables for categorical features, wavelet coefficients at different scales, or genes in the same biological pathway. The group Lasso uses a mixed \(\ell_1/\ell_2\) penalty that encourages entire groups to be included or excluded together, rather than selecting individual variables. This section develops the group Lasso and its oracle inequality, extending the restricted eigenvalue framework from Chapter 8 to the group-sparse setting.</p>
+                    </div>
+                </div>
+
+
                 <p>In many applications, predictors come in natural <strong>groups</strong>. For example, dummy variables for a categorical factor, polynomial terms for a single variable, or genes in the same pathway. The <strong>group Lasso</strong> (Yuan and Lin, 2006) encourages entire groups to be included or excluded together.</p>
 
                 <div class="env-block definition">
@@ -880,6 +904,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Non-Convex Penalties: SCAD &amp; MCP</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>All penalties we have studied so far are convex, ensuring computational tractability. However, the \(\ell_1\) penalty introduces a systematic bias: it shrinks large coefficients toward zero just as aggressively as small ones. Non-convex penalties like SCAD and MCP address this by applying less shrinkage to large coefficients, achieving better statistical properties (near-unbiasedness, the oracle property) at the cost of non-convex optimization. This section examines the bias-variance tradeoff of different penalty functions and their theoretical guarantees.</p>
+                    </div>
+                </div>
+
+
                 <p>The Lasso penalty \\\\(\\\\lambda|\\\\beta_j|\\\\) introduces a well-known <strong>bias</strong>: large coefficients are shrunk toward zero by the same amount \\\\(\\\\lambda\\\\) as small ones. This prevents the Lasso from achieving the <em>oracle property</em> &mdash; it cannot simultaneously select the correct support and estimate the nonzero coefficients at the parametric rate \\\\(\\\\sqrt{s/n}\\\\).</p>
 
                 <p><strong>Non-convex penalties</strong> address this limitation by reducing the penalty on large coefficients. The two most important are <strong>SCAD</strong> (Fan and Li, 2001) and <strong>MCP</strong> (Zhang, 2010).</p>
@@ -1011,6 +1043,14 @@ window.CHAPTERS.push({
             title: 'Comparison and Guidelines',
             content: `
                 <h2>Comparison and Guidelines</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>We have introduced a rich family of sparse estimators: Lasso, Dantzig, square-root Lasso, elastic net, group Lasso, SCAD, and MCP. How should a practitioner choose among them? This section provides a systematic comparison along the dimensions of statistical performance, computational cost, sensitivity to tuning, and robustness to model misspecification. Understanding these tradeoffs prepares us for Chapter 10, where we study the computational algorithms that make these estimators practical at scale.</p>
+                    </div>
+                </div>
+
 
                 <p>Having introduced several Lasso variants, we now provide a systematic comparison to help practitioners choose the right method for their problem.</p>
 

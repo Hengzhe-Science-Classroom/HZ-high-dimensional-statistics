@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>PCA Failure in High Dimensions</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>The random matrix theory of Chapters 5-7 revealed that classical PCA is inconsistent in the proportional regime: sample eigenvectors are biased, and weak signals are undetectable below the BBP threshold. Chapter 14 showed that low-rank structure enables recovery from partial observations. This chapter attacks the PCA problem head-on: how do we extract principal components when \(p\) is comparable to or larger than \(n\)? We study the Davis-Kahan theorem (which quantifies eigenvector perturbation), sparse PCA (which adds an \(\ell_1\) constraint to the eigenvector problem), algorithms for sparse PCA, and the computational-statistical gap, a fascinating phenomenon where the statistically optimal rate cannot be achieved by any polynomial-time algorithm.</p>
+                    </div>
+                </div>
+
+
                 <p>Principal Component Analysis (PCA) is perhaps the most widely used tool for dimensionality reduction. Given \\(n\\) observations \\(X_1, \\ldots, X_n \\in \\mathbb{R}^p\\) from a distribution with covariance \\(\\Sigma\\), PCA extracts the leading eigenvectors of \\(\\Sigma\\) to identify the directions of greatest variability. In classical statistics where \\(p\\) is fixed and \\(n \\to \\infty\\), sample PCA is consistent. But when the dimension \\(p\\) grows with (or exceeds) the sample size \\(n\\), the picture changes dramatically.</p>
 
                 <h3>The Spiked Covariance Model</h3>
@@ -451,6 +459,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Davis-Kahan Sin \\(\\theta\\) Theorem</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The previous section showed that PCA fails in high dimensions when the signal-to-noise ratio is insufficient. The Davis-Kahan theorem provides the fundamental perturbation bound that quantifies <em>when</em> PCA succeeds: the angle between the sample and population eigenvectors is controlled by the ratio of the perturbation size to the eigenvalue gap. This result, which originated in numerical linear algebra, has become the workhorse tool for analyzing PCA and its variants throughout high-dimensional statistics. It connects back to the BBP phase transition (Chapter 7) and provides the baseline that sparse PCA methods seek to improve upon.</p>
+                    </div>
+                </div>
+
+
                 <p>The BBP phase transition provides asymptotic limits for the angle between sample and population eigenvectors in the spiked model. But for practical finite-sample analysis, we need <strong>non-asymptotic perturbation bounds</strong>. The Davis-Kahan theorem is the foundational tool for this purpose.</p>
 
                 <h3>Setup: Perturbation of Symmetric Matrices</h3>
@@ -724,6 +740,14 @@ window.CHAPTERS.push({
             title: 'Sparse PCA',
             content: `
                 <h2>Sparse PCA: Formulation and SDP Relaxation</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The Davis-Kahan theorem shows that standard PCA requires the eigenvalue gap to exceed the operator norm of the noise matrix, which is \(O(\sqrt{p/n})\) in the proportional regime. When the leading eigenvector is <em>sparse</em> (only \(s\) of its \(p\) entries are nonzero), we can exploit this structure to detect much weaker signals, just as the Lasso exploits sparsity in regression (Chapter 8). Sparse PCA adds an \(\ell_1\) or cardinality constraint to the eigenvalue problem, reducing the effective dimension from \(p\) to \(s\). This section formulates sparse PCA and derives its statistical guarantees.</p>
+                    </div>
+                </div>
+
 
                 <p>We have seen that standard PCA fails in high dimensions when \\(p \\gg n\\), because the noise in the sample covariance overwhelms the signal. The key insight for overcoming this barrier is <strong>structural assumptions</strong>: if the leading eigenvector is sparse, we can estimate it at much lower sample complexity.</p>
 
@@ -1082,6 +1106,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Algorithms for Sparse PCA</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Unlike the Lasso, which is a convex optimization problem, sparse PCA is inherently non-convex: the eigenvalue problem combined with a sparsity constraint does not admit a tractable convex relaxation in general. This section surveys the main algorithmic approaches: the semidefinite relaxation of d'Aspremont et al., the iterative thresholding method, the truncated power method, and the covariance thresholding approach. Understanding the algorithmic landscape is essential for appreciating the computational-statistical gap discussed in the next section.</p>
+                    </div>
+                </div>
+
+
                 <p>While the SDP relaxation is statistically optimal, its computational cost of \\(O(p^{3.5})\\) or more per iteration makes it impractical for large-scale problems. Several faster algorithms have been developed, trading some statistical efficiency for computational tractability.</p>
 
                 <h3>Iterative Thresholding (Truncated Power Method)</h3>
@@ -1203,6 +1235,14 @@ window.CHAPTERS.push({
             title: 'Computational-Statistical Gap',
             content: `
                 <h2>The Computational-Statistical Gap</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Sparse PCA reveals one of the most intriguing phenomena in modern statistics: a gap between what is statistically possible and what is computationally feasible. Information-theoretically, sparse PCA can detect signals at the rate \(s \log p / n\), but no known polynomial-time algorithm achieves this rate; the best efficient algorithms require the stronger rate \(s^2 / n\). This computational-statistical gap, conjectured to be fundamental based on the planted clique hardness assumption, challenges the traditional view that statistical and computational limits coincide. This section develops this fascinating frontier, connecting to the minimax lower bounds of Chapter 18 and the broader theme of computational complexity in statistics. The ideas here also apply to the covariance estimation and graphical model problems of Chapter 16.</p>
+                    </div>
+                </div>
+
 
                 <p>One of the most profound phenomena in high-dimensional statistics is the <strong>computational-statistical gap</strong>: there exist regimes where a statistical problem is information-theoretically solvable (enough data exists to solve the problem in principle) but no known polynomial-time algorithm can solve it. Sparse PCA provides one of the cleanest examples of this phenomenon.</p>
 

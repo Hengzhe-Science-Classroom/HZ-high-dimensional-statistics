@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Minimax Rates for Nonparametric Problems</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapter 18 developed the lower bound machinery and applied it to specific problems. This final chapter takes a broader view: what are the minimax optimal rates for entire classes of problems (nonparametric regression, density estimation, function estimation on Sobolev and Besov spaces), and can we achieve these rates <em>without knowing</em> the smoothness or sparsity parameters? This question of <strong>adaptation</strong> asks whether a single estimator can automatically tune itself to the unknown complexity of the problem. We develop minimax rates for nonparametric problems, study the curse of dimensionality through the lens of rate theory, introduce Lepski's method for adaptive bandwidth selection, and explore model selection and aggregation as general frameworks for adaptation. These results provide the capstone for the course, connecting the concentration tools of Chapters 1-4 to the estimation methods of Chapters 8-17 within a unified information-theoretic framework.</p>
+                    </div>
+                </div>
+
+
                 <p>In Chapter 18, we developed the general toolkit for establishing minimax lower bounds: Fano's inequality, Assouad's lemma, and Le Cam's two-point method. We now apply these tools to determine the exact minimax rates for the two canonical nonparametric estimation problems: density estimation and nonparametric regression. The rates we derive are among the most fundamental results in mathematical statistics, revealing a precise and unavoidable tension between the smoothness of the unknown function, the ambient dimension, and the sample size.</p>
 
                 <h3>The Nonparametric Regression Model</h3>
@@ -312,6 +320,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Function Spaces: Sobolev and Besov Classes</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Minimax rates depend on the "size" of the parameter space, which for nonparametric problems is a function class. This section formalizes the key function spaces, Sobolev spaces, Holder spaces, Besov spaces, and develops their approximation-theoretic properties. The smoothness parameter \(\beta\) of these spaces directly determines the minimax rate: smoother functions are easier to estimate. These spaces also connect to the covering numbers of Chapter 4, since the metric entropy of a function class governs both upper bounds (via Dudley's integral) and lower bounds (via Fano's inequality).</p>
+                    </div>
+                </div>
+
+
                 <p>The H&ouml;lder classes introduced in Section 1 capture pointwise smoothness. For a richer and more flexible theory, we need function spaces defined through integral or frequency-domain conditions. The two most important such spaces are Sobolev spaces (defined via \\(L^2\\) integrability of derivatives) and Besov spaces (defined via wavelet coefficients). These spaces provide the natural setting for minimax theory and adaptive estimation.</p>
 
                 <h3>Sobolev Spaces</h3>
@@ -408,6 +424,14 @@ window.CHAPTERS.push({
             title: 'The Curse of Dimensionality',
             content: `
                 <h2>The Curse of Dimensionality in Nonparametric Estimation</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Chapter 0 introduced the curse of dimensionality informally; now we make it precise through minimax rate theory. For nonparametric regression on a \(\beta\)-smooth Sobolev class in \(d\) dimensions, the minimax rate is \(n^{-2\beta/(2\beta + d)}\), which degrades exponentially with dimension \(d\). This is the quantitative curse of dimensionality: the price of not knowing the functional form grows with the ambient dimension. The only escape is through structural assumptions (additivity, sparsity, low-dimensional projections), which reduce the effective dimension and allow faster rates.</p>
+                    </div>
+                </div>
+
 
                 <p>Stone's theorem reveals a fundamental and sobering truth: the rate \\(n^{-2s/(2s+d)}\\) degrades dramatically as the dimension \\(d\\) increases. This section quantifies this degradation and explores its consequences for practical estimation, connecting it to the broader question of why modern machine learning methods seem to defy the curse.</p>
 
@@ -747,6 +771,14 @@ window.CHAPTERS.push({
             title: 'Adaptation',
             content: `
                 <h2>Adaptation: Achieving Optimal Rates Without Knowing Smoothness</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Minimax rates tell us the best achievable performance for a <em>known</em> smoothness class. But in practice, the smoothness parameter \(\beta\) is unknown. Can a single estimator achieve the minimax rate \(n^{-2\beta/(2\beta+d)}\) simultaneously for all \(\beta\), without knowing \(\beta\) in advance? This is the <strong>adaptation</strong> question. Lepski's method provides an elegant affirmative answer for many problems, at the cost of at most a logarithmic factor. This section develops Lepski's method and discusses the fundamental limits of adaptation.</p>
+                    </div>
+                </div>
+
 
                 <p>The minimax rates derived in the previous sections assume that the smoothness parameter \\(s\\) is <strong>known</strong> to the statistician. The optimal bandwidth \\(h^* \\asymp n^{-1/(2s+d)}\\) depends explicitly on \\(s\\). But in practice, we never know the smoothness of the unknown function. This raises a fundamental question: <strong>can we achieve the optimal rate \\(n^{-2s/(2s+d)}\\) simultaneously for all \\(s\\), without knowing \\(s\\) in advance?</strong></p>
 
@@ -1192,6 +1224,14 @@ window.CHAPTERS.push({
             title: 'Model Selection & Aggregation',
             content: `
                 <h2>Model Selection, Aggregation, and Connections to Deep Learning</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Lepski's method adapts to unknown smoothness for a single estimator family. Model selection and aggregation provide a more general adaptation framework: given a collection of candidate estimators (one per model, or one per tuning parameter value), select the best one or combine them optimally. This section develops the theory of model selection via penalized empirical risk, oracle inequalities for aggregation, and the connection to cross-validation (Chapter 10). These results unify the adaptation question across all the estimation problems studied in this course, from sparse regression (adapting to the unknown sparsity \(s\)) to nonparametric estimation (adapting to the unknown smoothness \(\beta\)). With this, our tour of high-dimensional statistics is complete: from the geometric intuition of Chapter 0, through the concentration and random matrix foundations of Chapters 1-7, the estimation methods of Chapters 8-17, to the information-theoretic limits and adaptation theory of Chapters 18-19.</p>
+                    </div>
+                </div>
+
 
                 <p>Beyond bandwidth selection, the problem of adaptation has a broader formulation: given a collection of candidate estimators (corresponding to different models, tuning parameters, or algorithms), how do we select the best one or combine them optimally? This is the domain of <strong>model selection</strong> and <strong>aggregation</strong>, which connects minimax theory to practical methods like cross-validation, information criteria, and ensemble learning.</p>
 

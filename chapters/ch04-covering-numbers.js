@@ -15,6 +15,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>\\(\\varepsilon\\)-Nets and Covers</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapters 1-3 gave us concentration inequalities for individual random variables, sums, and vectors. But many problems in high-dimensional statistics require <em>uniform</em> control: bounding \(\sup_{\theta \in \Theta} |Z(\theta)|\) over an entire parameter set. This chapter introduces the geometric tools, covering numbers, packing numbers, and metric entropy, that measure the "size" or "complexity" of parameter sets. These concepts are the bridge between pointwise concentration (Chapters 1-3) and uniform convergence, culminating in Dudley's entropy integral and the chaining technique. This machinery is essential for the restricted eigenvalue conditions in Lasso theory (Chapter 8), the analysis of matrix completion (Chapter 14), and the minimax lower bounds (Chapter 18).</p>
+                    </div>
+                </div>
+
+
                 <p>One of the deepest themes in high-dimensional probability is that
                 the <em>complexity</em> of a set governs the behavior of random processes
                 indexed by that set. The most natural way to measure geometric complexity
@@ -431,6 +439,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Covering and Packing Numbers</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>We have defined \(\varepsilon\)-nets and covering numbers as a way to discretize continuous sets. But how do we compute or bound these quantities? This section develops the systematic relationship between covering numbers and packing numbers (which are often easier to bound), establishes key volumetric estimates, and computes covering numbers for the fundamental geometric objects, \(\ell_p\) balls, ellipsoids, and convex bodies, that appear throughout high-dimensional statistics.</p>
+                    </div>
+                </div>
+
+
                 <p>Having introduced \\(\\varepsilon\\)-nets, we now define the two fundamental
                 combinatorial quantities that measure the "size" of a metric space at
                 resolution \\(\\varepsilon\\).</p>
@@ -592,6 +608,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Metric Entropy</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Covering and packing numbers quantify geometric complexity at a single scale \(\varepsilon\). Metric entropy (the logarithm of the covering number) measures the "information content" of a set and naturally connects to information theory. This section develops metric entropy calculations for key function classes and introduces the entropy integral, which aggregates complexity across all scales. Understanding how metric entropy grows with dimension is essential for the minimax theory in Chapter 18, where it determines the fundamental limits of estimation.</p>
+                    </div>
+                </div>
+
+
                 <p>The <strong>metric entropy</strong> (or <strong>entropy number</strong>) of a set
                 is the logarithm of its covering number. This quantity plays the role of an
                 effective dimension and appears throughout high-dimensional probability and
@@ -733,6 +757,14 @@ window.CHAPTERS.push({
             title: "Dudley's Entropy Integral",
             content: `
                 <h2>Dudley's Entropy Integral</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>We now arrive at one of the deepest results connecting geometry and probability: Dudley's entropy integral, which bounds the expected supremum of a Gaussian process in terms of the metric entropy of the index set. This result shows that the "size" of the supremum \(\mathbb{E}[\sup_{t \in T} X_t]\) is controlled by how quickly the covering numbers grow. Dudley's bound is the main tool for establishing uniform convergence results in high-dimensional statistics and directly yields the restricted eigenvalue conditions needed for Lasso theory.</p>
+                    </div>
+                </div>
+
 
                 <p>One of the most important applications of metric entropy is bounding
                 the <strong>supremum of a stochastic process</strong>. Given a random process
@@ -1085,6 +1117,14 @@ window.CHAPTERS.push({
             title: 'Chaining and Applications',
             content: `
                 <h2>Generic Chaining and Applications</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Dudley's entropy integral provides an upper bound on the supremum of a Gaussian process, but in some cases it is not tight. The chaining method (also called generic chaining) refines Dudley's approach by building a multi-scale approximation that more efficiently links the geometry of the index set to the behavior of the process. This section develops chaining and applies the full covering number toolkit to concrete problems: bounding the operator norm of random matrices, establishing restricted isometry properties, and analyzing empirical processes. These applications provide the technical foundation for the random matrix theory (Chapters 5-7) and sparse estimation (Chapters 8-10) that follow.</p>
+                    </div>
+                </div>
+
 
                 <p>Dudley's entropy integral, while powerful, is not always sharp. Talagrand's
                 <strong>generic chaining</strong> theory provides the definitive answer to

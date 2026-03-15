@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Minimax Framework</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapters 8-17 developed estimators and proved upper bounds on their estimation error. But how do we know these bounds are tight? Could a cleverer estimator achieve a faster rate? This chapter answers these questions by developing the minimax framework and three powerful techniques for proving lower bounds: Le Cam's two-point method, Fano's inequality, and Assouad's lemma. These information-theoretic tools establish that the rates achieved by the Lasso, nuclear norm minimization, and other estimators are fundamental: no method, regardless of computational cost, can do substantially better. Together with the upper bounds, minimax lower bounds reveal the intrinsic difficulty of high-dimensional estimation problems.</p>
+                    </div>
+                </div>
+
+
                 <p>Throughout this course, we have derived <em>upper bounds</em> on estimation error: given an estimator \\(\\hat{\\theta}\\), we showed its risk is at most some rate. But are these rates the best possible? Could a cleverer estimator do fundamentally better? The minimax framework provides a principled answer: it characterizes the <strong>intrinsic difficulty</strong> of an estimation problem, independent of any particular estimator.</p>
 
                 <h3>Setup</h3>
@@ -111,6 +119,14 @@ window.CHAPTERS.push({
             title: "Le Cam's Two-Point Method",
             content: `
                 <h2>Le Cam's Two-Point Method</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The minimax framework defines what "optimal" means; now we need tools to prove that no estimator can beat a certain rate. Le Cam's two-point method is the simplest and most elegant: choose two parameter values \(\theta_0\) and \(\theta_1\) that are hard to distinguish, then show that any estimator must incur substantial error on at least one of them. The key quantity is the total variation distance between the two distributions, which measures how well any test can distinguish them. Despite its simplicity, Le Cam's method yields sharp lower bounds for many problems and provides the building block for the more sophisticated methods that follow.</p>
+                    </div>
+                </div>
+
 
                 <p>The simplest and most elegant lower bound technique uses just <em>two</em> hypotheses. If the statistician cannot reliably distinguish between two parameter values \\(\\theta_0\\) and \\(\\theta_1\\), then the estimation error must be at least proportional to the distance \\(\\|\\theta_1 - \\theta_0\\|\\).</p>
 
@@ -419,6 +435,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Fano's Inequality</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Le Cam's two-point method reduces estimation to testing between two hypotheses. Fano's inequality generalizes this to \(M \ge 2\) hypotheses, yielding tighter bounds by exploiting the richness of the parameter space. The key idea is that distinguishing among \(M\) well-separated parameter values requires \(\log M\) bits of information, but the data provides only a limited amount of information (measured by the KL divergence). When \(\log M\) exceeds the information budget, no estimator can reliably identify the true parameter. Fano's method is the primary tool for lower bounds in sparse regression, matrix estimation, and nonparametric problems.</p>
+                    </div>
+                </div>
+
+
                 <p>Le Cam's two-point method is limited because it uses only two hypotheses and cannot capture the combinatorial richness of large parameter spaces. <strong>Fano's inequality</strong> generalizes the approach to \\(M \\geq 2\\) hypotheses, enabling us to derive sharp lower bounds for high-dimensional problems.</p>
 
                 <h3>The Multiple Testing Reduction</h3>
@@ -681,6 +705,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Assouad's Lemma</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Fano's inequality provides lower bounds through a multiple hypothesis testing reduction, but constructing a large packing set can be challenging. Assouad's lemma offers an alternative that is particularly natural for product parameter spaces: it reduces the estimation problem to \(d\) binary hypothesis tests, one for each coordinate. The minimax risk is then bounded below by the sum of the coordinate-wise testing difficulties. This technique is especially powerful for nonparametric and structured problems where the parameter naturally decomposes into independent components.</p>
+                    </div>
+                </div>
+
+
                 <p>While Fano's inequality is powerful, it sometimes gives suboptimal constants because it treats the multiple testing problem globally. <strong>Assouad's lemma</strong> is tailored for parameter spaces with <strong>product structure</strong>, where the difficulty of estimation decomposes into independent coordinate-wise testing problems.</p>
 
                 <h3>Product Parameter Spaces</h3>
@@ -807,6 +839,14 @@ window.CHAPTERS.push({
             title: 'Applications: Sparse Regression Lower Bounds',
             content: `
                 <h2>Applications: Sparse Regression Lower Bounds</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>We now apply Le Cam, Fano, and Assouad to prove that the estimation rates achieved by the Lasso and its variants are minimax optimal. The key results are: the rate \(s \log(p/s) / n\) for sparse regression (matching the Lasso upper bound from Chapter 8), the rate \((n_1 + n_2)r / m\) for matrix completion (matching Chapter 14), and the rate for covariance estimation (matching Chapter 16). These lower bounds confirm that the structural assumptions and estimators developed in Chapters 8-17 cannot be fundamentally improved. Chapter 19 takes this further by studying optimal rates across function classes and the question of adaptation.</p>
+                    </div>
+                </div>
+
 
                 <p>We now apply the machinery developed in this chapter to establish the <strong>minimax lower bound for sparse linear regression</strong>, showing that the Lasso (Chapter 8) achieves the <em>optimal rate</em>.</p>
 

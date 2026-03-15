@@ -24,6 +24,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Covariance and Sample Covariance</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapters 1 and 2 developed concentration inequalities for scalar random variables and their sums. In high-dimensional statistics, however, we work with random vectors \(X \in \mathbb{R}^p\), and the key objects of interest, covariance matrices, norms, and inner products, are all vector-valued or matrix-valued. This chapter lifts our concentration toolkit from scalars to vectors. We study the sample covariance matrix, concentration of quadratic forms and norms, and the celebrated Johnson-Lindenstrauss lemma, which shows that random projections preserve geometry. These results form the probabilistic bridge between scalar concentration (Chapters 1-2) and the geometric complexity theory (Chapter 4) that unlocks uniform convergence.</p>
+                    </div>
+                </div>
+
+
                 <p>We now move from scalar random variables to <strong>random vectors</strong> \\(X \\in \\mathbb{R}^d\\).  The fundamental object governing the second-order behavior of \\(X\\) is its <strong>covariance matrix</strong>.</p>
 
                 <div class="env-block definition">
@@ -128,6 +136,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Concentration of Quadratic Forms</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The sample covariance matrix is built from outer products \(X_i X_i^\top\), but many statistical procedures depend on quadratic forms \(X^\top A X\) for specific matrices \(A\). This section develops concentration results for such quadratic forms, connecting the sub-exponential theory from Chapter 2 (since \(X^\top A X\) involves products of sub-Gaussian variables) to the matrix-level concentration we need for analyzing regression estimators and spectral methods.</p>
+                    </div>
+                </div>
+
+
                 <p>In Chapter 1, we studied concentration of <em>linear</em> functions \\(\\langle a, X \\rangle\\) of sub-Gaussian random vectors.  We now turn to <strong>quadratic forms</strong> \\(X^\\top A X\\), which arise naturally when studying norms, variances, and covariance estimation.  The key tool is the <strong>Hanson-Wright inequality</strong>.</p>
 
                 <div class="env-block definition">
@@ -223,6 +239,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Concentration of Norms</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Quadratic forms give pointwise concentration for \(X^\top A X\). A closely related but distinct question is how the norm \(\|X\|_2\) of a random vector concentrates. We saw in Chapter 0 that Gaussian vectors concentrate on a shell of radius \(\sqrt{p}\); now we make this precise using the tools of Chapters 1 and 2. Norm concentration is the key ingredient for analyzing random projections in the next section and for establishing the restricted eigenvalue conditions needed for Lasso theory in Chapter 8.</p>
+                    </div>
+                </div>
+
+
                 <p>One of the most striking phenomena in high dimensions is that the Euclidean norm of a random vector concentrates sharply around a <strong>deterministic value</strong>.  Informally: in high dimensions, random vectors of similar length cluster tightly near a <strong>thin spherical shell</strong>.</p>
 
                 <div class="env-block theorem">
@@ -302,6 +326,14 @@ window.CHAPTERS.push({
             title: 'Johnson-Lindenstrauss Lemma',
             content: `
                 <h2>The Johnson-Lindenstrauss Lemma</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Norm concentration tells us that a single random vector has predictable length. The Johnson-Lindenstrauss (JL) lemma takes this much further: a random projection from \(\mathbb{R}^p\) to \(\mathbb{R}^k\), with \(k = O(\log n / \varepsilon^2)\), approximately preserves <em>all</em> pairwise distances among \(n\) points simultaneously. This result, which follows from sub-Gaussian concentration plus a union bound, is one of the most beautiful applications of the theory developed in Chapters 1-3 and has profound implications for dimensionality reduction in practice.</p>
+                    </div>
+                </div>
+
 
                 <p>We arrive at one of the most celebrated results in high-dimensional geometry: the <strong>Johnson-Lindenstrauss (JL) lemma</strong>.  It states that any finite set of points in arbitrarily high dimensions can be embedded into \\(O(\\log n)\\) dimensions while approximately preserving all pairwise distances.  The required target dimension depends on the <em>number of points</em>, not the ambient dimension.</p>
 
@@ -666,6 +698,14 @@ window.CHAPTERS.push({
             title: 'Random Projections in Practice',
             content: `
                 <h2>Random Projections in Practice</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The JL lemma guarantees that random projections preserve geometry with high probability. This section explores the practical side: how to choose projection matrices, computational considerations, and applications to nearest-neighbor search, sketching, and compressed sensing. These applications preview the structured estimation themes (sparsity, low rank) of Chapters 8-17 and demonstrate that concentration inequalities are not merely theoretical tools but the foundation for practical algorithms. With the vector-level concentration of this chapter complete, we move to Chapter 4, where we develop the geometric language of covering numbers and metric entropy needed for uniform convergence results.</p>
+                    </div>
+                </div>
+
 
                 <p>The JL lemma is not just a theoretical curiosity -- it is the foundation of powerful algorithms in machine learning, databases, and signal processing.  We discuss practical variants of random projections and their applications.</p>
 

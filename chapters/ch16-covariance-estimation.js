@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Covariance Estimation in High Dimensions</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapter 15 focused on the leading eigenvectors of the covariance matrix. This chapter tackles the covariance matrix itself: how do we estimate \(\Sigma\) (or its inverse \(\Sigma^{-1}\)) when \(p\) is comparable to or larger than \(n\)? The sample covariance \(\hat{\Sigma}\) is singular when \(p > n\) and inconsistent in operator norm when \(p/n \to \gamma > 0\) (as the Marchenko-Pastur law of Chapter 6 showed). We develop structured estimators that exploit assumed patterns in \(\Sigma\): thresholding for approximately sparse covariance, banding for ordered variables, and the graphical Lasso and CLIME for sparse precision matrix estimation. These methods connect the Lasso framework of Chapters 8-9 to the matrix setting and provide the tools for Gaussian graphical model inference.</p>
+                    </div>
+                </div>
+
+
                 <p>The covariance matrix \\(\\Sigma = \\mathbb{E}[(X - \\mu)(X - \\mu)^T]\\) of a random vector \\(X \\in \\mathbb{R}^p\\) is a fundamental object in multivariate statistics. In classical statistics, where the number of observations \\(n\\) vastly exceeds the dimension \\(p\\), the sample covariance matrix is a reliable estimator. But in high dimensions, where \\(p\\) may be comparable to or even exceed \\(n\\), the situation changes dramatically.</p>
 
                 <h3>The Sample Covariance Matrix</h3>
@@ -336,6 +344,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Banding and Tapering</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Thresholding exploits element-wise sparsity in \(\Sigma\), but many covariance matrices have a different structure: variables that are "close" (in time, space, or ordering) are correlated, while distant variables are nearly uncorrelated. This means \(\Sigma\) is approximately <em>banded</em>: entries far from the diagonal are small. Banding and tapering estimators zero out or down-weight off-diagonal entries, exploiting this decay structure. This section develops these estimators and their minimax optimality for banded covariance classes.</p>
+                    </div>
+                </div>
+
+
                 <p>When the variables \\(X_1, \\ldots, X_p\\) have a <strong>natural ordering</strong> (for instance, time series, spatial locations along a line, or genomic positions), it is natural to assume that variables far apart in this ordering are weakly correlated. This leads to covariance matrices whose entries decay away from the diagonal.</p>
 
                 <div class="env-block definition">
@@ -437,6 +453,14 @@ window.CHAPTERS.push({
             title: 'Graphical Lasso',
             content: `
                 <h2>Graphical Lasso</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Thresholding and banding estimate the covariance \(\Sigma\). But in many applications (gene regulatory networks, financial networks, social networks), the object of primary interest is the <em>precision matrix</em> \(\Omega = \Sigma^{-1}\), whose zero pattern encodes conditional independence relationships. The graphical Lasso estimates \(\Omega\) by maximizing the Gaussian log-likelihood with an \(\ell_1\) penalty on the off-diagonal entries, directly extending the Lasso idea of Chapter 8 from vectors to matrices. This is one of the most widely used methods in high-dimensional statistics.</p>
+                    </div>
+                </div>
+
 
                 <p>We now shift our focus from estimating \\(\\Sigma\\) to estimating the <strong>precision matrix</strong> \\(\\Omega = \\Sigma^{-1}\\). The key insight is a deep connection between the precision matrix and <strong>conditional independence</strong>.</p>
 
@@ -792,6 +816,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>CLIME: Constrained \\(\\ell_1\\) Minimization for Inverse Matrix Estimation</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The graphical Lasso requires solving a log-determinant optimization problem, which can be computationally expensive for very large \(p\). The CLIME (Constrained L1-Minimization for Inverse Matrix Estimation) estimator provides an alternative: it estimates each column of \(\Omega\) separately using linear programming, making it embarrassingly parallelizable. This section develops CLIME, proves its convergence rates, and compares it to the graphical Lasso. CLIME also connects to the node-wise regression approach used for the debiased Lasso in Chapter 12.</p>
+                    </div>
+                </div>
+
+
                 <p>While the graphical lasso is a penalized likelihood method, <strong>CLIME</strong> (Cai, Liu, and Luo, 2011) takes a fundamentally different approach: it directly targets the precision matrix through a constrained \\(\\ell_1\\) optimization that decouples across columns.</p>
 
                 <h3>The CLIME Estimator</h3>
@@ -889,6 +921,14 @@ window.CHAPTERS.push({
             title: 'Gaussian Graphical Models',
             content: `
                 <h2>Gaussian Graphical Models</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The graphical Lasso and CLIME estimate the precision matrix; this section develops the statistical and graphical interpretation. In a Gaussian graphical model, the zeros in \(\Omega\) correspond to missing edges in the conditional independence graph. This section covers model selection consistency (when does the graphical Lasso correctly identify the graph structure?), hypothesis testing for individual edges, and the connection to the FDR procedures of Chapter 11. These graphical models provide a powerful framework for understanding complex dependency structures in high-dimensional data. With covariance and graphical model estimation complete, Chapter 17 addresses the more general problem of low-rank plus sparse matrix decomposition.</p>
+                    </div>
+                </div>
+
 
                 <p>The results of the preceding sections have a beautiful interpretation in the language of <strong>graphical models</strong>. A Gaussian graphical model encodes the conditional independence structure of a multivariate Gaussian distribution as an undirected graph.</p>
 

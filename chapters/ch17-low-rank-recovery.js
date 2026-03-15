@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Robust PCA Problem</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Matrix completion (Chapter 14), PCA (Chapter 15), and covariance estimation (Chapter 16) each exploit a single structural assumption (low rank, sparsity, or graphical structure). Real data often exhibits <em>multiple</em> structures simultaneously: a low-rank signal corrupted by sparse outliers, or a matrix observed through a combination of missing entries and gross errors. This chapter develops robust PCA (decomposing a matrix into low-rank plus sparse components), principal component pursuit, recovery guarantees, the matrix RIP (connecting to the covering numbers of Chapter 4), and the relationship to compressed sensing (Chapter 8). This chapter completes the structured estimation arc of Chapters 14-17 and sets the stage for the information-theoretic limits of Chapters 18-19.</p>
+                    </div>
+                </div>
+
+
                 <p>Classical PCA assumes that the data matrix is corrupted by small, dense noise. But in many real-world applications --- surveillance video, face recognition, network monitoring --- the corruption is <em>sparse</em> but can be arbitrarily large in magnitude. This motivates the <strong>Robust PCA</strong> problem: decomposing an observed matrix into a low-rank component and a sparse component.</p>
 
                 <h3>The Decomposition Model</h3>
@@ -228,6 +236,14 @@ window.CHAPTERS.push({
             title: 'Principal Component Pursuit',
             content: `
                 <h2>Principal Component Pursuit</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The robust PCA problem asks us to decompose \(M = L + S\) where \(L\) is low-rank and \(S\) is sparse. Principal Component Pursuit (PCP) solves this via convex optimization: minimize \(\|L\|_* + \lambda \|S\|_1\) subject to \(L + S = M\). This combines the nuclear norm (from matrix completion, Chapter 14) with the \(\ell_1\) norm (from the Lasso, Chapter 8) into a single convex program. The remarkable result, due to Candes, Li, Ma, and Wright, is that PCP recovers both \(L\) and \(S\) exactly under incoherence conditions, even though neither is observed directly.</p>
+                    </div>
+                </div>
+
 
                 <p>Given the Robust PCA decomposition problem \\(M = L_0 + S_0\\), the natural approach would be to solve the combinatorial problem:</p>
                 \\[\\min_{L, S} \\; \\operatorname{rank}(L) + \\lambda \\|S\\|_0 \\quad \\text{subject to} \\quad L + S = M\\]
@@ -672,6 +688,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Recovery Guarantees</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>This section provides the rigorous recovery guarantees for PCP: under what conditions on the rank of \(L\), the sparsity of \(S\), and the incoherence of \(L\), does PCP succeed? The proof follows the by-now-familiar template: a dual certificate argument (analogous to the KKT conditions for the Lasso), combined with the golfing scheme construction. The conditions reveal a fundamental tradeoff between rank and sparsity: if \(L\) has rank \(r\) and \(S\) has at most \(m\) nonzero entries, exact recovery requires \(r \lesssim n / (\mu \log^2 n)\) and \(m \lesssim n^2 / (\mu r)\).</p>
+                    </div>
+                </div>
+
+
                 <p>Under what conditions does Principal Component Pursuit exactly recover the true low-rank and sparse components? The answer involves two key structural assumptions: <strong>incoherence</strong> of the low-rank component and a <strong>sparsity pattern</strong> condition on the sparse component.</p>
 
                 <h3>Incoherence Condition</h3>
@@ -798,6 +822,14 @@ window.CHAPTERS.push({
             title: 'Matrix Sensing & RIP',
             content: `
                 <h2>Matrix Sensing &amp; RIP</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Matrix completion and robust PCA are specific instances of a more general problem: recovering a low-rank matrix from linear measurements \(y_i = \langle A_i, M \rangle\). When the measurement matrices \(A_i\) satisfy a restricted isometry property (RIP) for low-rank matrices, nuclear norm minimization recovers \(M\) with near-optimal error bounds. The matrix RIP is the direct analogue of the restricted eigenvalue condition for the Lasso (Chapter 8), and verifying it for random measurements uses the covering number tools of Chapter 4. This unifying viewpoint connects sparse vector recovery and low-rank matrix recovery under a single geometric framework.</p>
+                    </div>
+                </div>
+
 
                 <p>While Robust PCA recovers a low-rank matrix from its full observation corrupted by sparse errors, <strong>matrix sensing</strong> addresses the more general problem of recovering a low-rank matrix from <em>linear measurements</em>.</p>
 
@@ -1154,6 +1186,14 @@ window.CHAPTERS.push({
             title: 'Connections to Compressed Sensing',
             content: `
                 <h2>Connections to Compressed Sensing</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>This final section makes the deep structural parallel between sparse vector recovery (compressed sensing / Lasso, Chapters 8-10) and low-rank matrix recovery (Chapters 14-17) explicit. Both exploit low-dimensional structure via convex relaxation (\(\ell_1\) norm for sparsity, nuclear norm for low rank), both require restricted isometry/eigenvalue conditions verified through concentration inequalities, and both achieve error rates that scale with the intrinsic dimension rather than the ambient dimension. Recognizing this unified framework is essential for the minimax lower bounds of Chapter 18, where we prove that these rates are fundamental and cannot be improved.</p>
+                    </div>
+                </div>
+
 
                 <p>The theory of low-rank matrix recovery is deeply connected to compressed sensing for sparse vectors. This section makes the parallels precise and develops a <strong>unified view</strong> of structured recovery problems.</p>
 

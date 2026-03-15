@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Classical Inequalities: Markov and Chebyshev</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapter 0 revealed that high-dimensional spaces demand precise probabilistic control: we need to bound how random quantities deviate from their expectations, uniformly across many dimensions. This chapter develops the first pillar of our toolkit, concentration inequalities for sums of independent random variables. We begin with the classical bounds of Markov and Chebyshev, progress to the Chernoff method and Hoeffding's inequality, and culminate with the theory of sub-Gaussian random variables. These tools will be essential for every estimation result in the course.</p>
+                    </div>
+                </div>
+
+
                 <p>The fundamental problem of concentration of measure is to determine how closely a random variable clusters around a typical value (its mean or median). The simplest answers come from classical moment-based inequalities. While these bounds are too loose for high-dimensional applications, they establish the conceptual framework upon which all stronger results are built.</p>
 
                 <h3>Markov's Inequality</h3>
@@ -282,6 +290,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Chernoff Method</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Markov and Chebyshev give polynomial tail decay, but high-dimensional problems demand exponential decay. The Chernoff method bridges this gap by applying Markov's inequality not to \(X\) itself but to the exponential transform \(e^{\lambda X}\). This single idea, converting tail probability bounds into moment generating function (MGF) bounds, is the engine behind virtually all modern concentration inequalities.</p>
+                    </div>
+                </div>
+
+
                 <p>The key idea that unlocks exponential tail bounds is the <strong>exponential moment method</strong>, also known as the <em>Chernoff bound</em>. Instead of applying Markov's inequality to \\(|X|^k\\), we apply it to the exponential function \\(e^{\\lambda X}\\), and then optimize over the free parameter \\(\\lambda\\).</p>
 
                 <div class="env-block definition">
@@ -384,6 +400,14 @@ window.CHAPTERS.push({
             title: "Hoeffding's Inequality",
             content: `
                 <h2>Hoeffding's Inequality</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The Chernoff method gave us a general recipe: bound the MGF, then optimize over \(\lambda\). Now we apply this recipe to sums of independent bounded random variables, arriving at Hoeffding's inequality, one of the most widely used concentration bounds in statistics and machine learning. This result gives us the exponential tail decay we need for high-dimensional problems and serves as the prototype for the sub-Gaussian theory developed later in this chapter.</p>
+                    </div>
+                </div>
+
 
                 <p>We now apply the Chernoff method to bounded random variables, obtaining one of the most widely used concentration inequalities in probability and statistics.</p>
 
@@ -715,6 +739,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Sub-Gaussian Random Variables</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Hoeffding's inequality applies to bounded random variables, but many distributions arising in high-dimensional statistics (Gaussians, Rademacher variables, and their linear combinations) are unbounded yet still have Gaussian-like tail behavior. The sub-Gaussian class formalizes this property: a random variable is sub-Gaussian if its tails decay at least as fast as those of a Gaussian. This unifying concept lets us develop concentration results that apply across a broad family of distributions.</p>
+                    </div>
+                </div>
+
+
                 <p>Hoeffding's inequality works for bounded random variables, but many natural distributions -- Gaussians, Rademacher variables, bounded perturbations of Gaussians -- share the same exponential tail behavior without being bounded. The theory of <strong>sub-Gaussian random variables</strong> provides a unified framework for all distributions with "Gaussian-like" or better tails.</p>
 
                 <h3>Definition and Equivalent Characterizations</h3>
@@ -837,6 +869,14 @@ window.CHAPTERS.push({
             title: 'Sums and Maxima',
             content: `
                 <h2>Sums of Independent Sub-Gaussians and Maximal Inequalities</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>With the sub-Gaussian framework in place, we now study two operations that arise constantly in high-dimensional statistics: summing independent random variables and taking maxima over many coordinates. The closure of the sub-Gaussian class under summation is the engine behind concentration for sample means, while the maximal inequality (controlling \(\max_{j \le p} |X_j|\)) is essential for problems where we must maintain uniform control over all \(p\) dimensions simultaneously, exactly the setting that motivated Chapter 0. These tools set the stage for the sub-exponential theory in Chapter 2.</p>
+                    </div>
+                </div>
+
 
                 <p>The power of the sub-Gaussian framework becomes fully apparent when we study sums of independent sub-Gaussian random variables and their suprema over finite (or infinite) index sets. These results form the backbone of high-dimensional statistics.</p>
 

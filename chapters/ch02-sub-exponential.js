@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Sub-Exponential Random Variables</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapter 1 equipped us with sub-Gaussian concentration, which provides \(e^{-ct^2}\) tail decay. However, many quantities in high-dimensional statistics, such as squared norms, products of random variables, and chi-squared statistics, have heavier tails that decay as \(e^{-ct}\). This chapter extends our concentration toolkit to the sub-exponential class, develops Bernstein's inequality (which interpolates between sub-Gaussian and sub-exponential regimes), and introduces two powerful general-purpose tools: McDiarmid's bounded differences inequality and Gaussian concentration. Together, these results complete the scalar and functional concentration toolkit needed for the random vector theory in Chapter 3.</p>
+                    </div>
+                </div>
+
+
                 <p>In the previous chapter, we studied sub-Gaussian random variables --- those whose tails decay at least as fast as a Gaussian. Many important random variables, however, have <strong>heavier tails</strong> that decay exponentially rather than as \\\\(e^{-ct^2}\\\\). The canonical example is the \\\\(\\\\chi^2\\\\) distribution.</p>
 
                 <h3>Motivating Example: The \\\\(\\\\chi^2\\\\) Distribution</h3>
@@ -120,6 +128,14 @@ window.CHAPTERS.push({
             title: "Bernstein's Inequality",
             content: `
                 <h2>Bernstein's Inequality</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The sub-exponential framework tells us that heavier-tailed variables still concentrate, just with \(e^{-ct}\) rather than \(e^{-ct^2}\) decay. Bernstein's inequality is the workhorse result for sums of sub-exponential random variables: it reveals a beautiful two-regime behavior where the tail is sub-Gaussian for small deviations and sub-exponential for large deviations. This hybrid behavior appears throughout high-dimensional statistics, particularly in the analysis of chi-squared statistics and quadratic forms.</p>
+                    </div>
+                </div>
+
 
                 <p>The central result for sub-exponential random variables is <strong>Bernstein's inequality</strong>. Unlike Hoeffding's inequality, which uses only boundedness information, Bernstein's inequality is <em>variance-sensitive</em>: it exploits the variance of the summands to give tighter bounds when the variance is small.</p>
 
@@ -487,6 +503,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>Products and Compositions</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Bernstein's inequality handles sums, but high-dimensional statistics frequently involves products, squares, and other nonlinear transformations of random variables. This section develops the algebra of sub-Gaussian and sub-exponential classes under these operations. The key insight is that products of sub-Gaussian variables are sub-exponential, connecting the two concentration regimes and explaining why quadratic forms (which appear in regression analysis, covariance estimation, and random matrix theory) naturally belong to the sub-exponential world.</p>
+                    </div>
+                </div>
+
+
                 <p>One of the key structural results connecting sub-Gaussian and sub-exponential families is that <strong>products of sub-Gaussian random variables are sub-exponential</strong>. This seemingly simple fact has far-reaching consequences.</p>
 
                 <div class="env-block theorem">
@@ -596,6 +620,14 @@ window.CHAPTERS.push({
             title: "McDiarmid's Inequality",
             content: `
                 <h2>McDiarmid's Bounded Differences Inequality</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div name="env-body">
+                        <p>So far, our concentration results have focused on sums and products of random variables. But many statistics of interest are complicated, nonlinear functions of the data: the sample median, the largest singular value, the length of the longest increasing subsequence. McDiarmid's inequality provides concentration for <em>any</em> function of independent random variables, as long as changing one input cannot change the output by too much. This "bounded differences" condition is surprisingly easy to verify, making McDiarmid's inequality one of the most versatile tools in our arsenal.</p>
+                    </div>
+                </div>
+
 
                 <p>So far, we have focused on concentration of <em>sums</em> of independent random variables. A much more powerful and general paradigm asks: when does a <em>function</em> \\\\(f(X_1, \\\\ldots, X_n)\\\\) of independent random variables concentrate around its mean?</p>
 
@@ -952,6 +984,14 @@ window.CHAPTERS.push({
             title: 'Gaussian Concentration',
             content: `
                 <h2>Gaussian Concentration</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>McDiarmid's inequality controls functions of independent random variables through bounded differences. When the inputs are Gaussian, we can do even better: any Lipschitz function of a Gaussian vector concentrates with sub-Gaussian tails, where the sub-Gaussian parameter depends only on the Lipschitz constant. This Gaussian concentration inequality (a consequence of the Gaussian isoperimetric inequality) is one of the deepest results in probability theory and directly connects the concentration shell phenomenon from Chapter 0 to the rigorous framework we have built. With these tools in hand, we are ready to move from scalar concentration to the richer world of random vectors in Chapter 3.</p>
+                    </div>
+                </div>
+
 
                 <p>One of the most beautiful results in high-dimensional probability is that <strong>Lipschitz functions of Gaussian vectors concentrate sharply around their means</strong>. This Gaussian concentration inequality can be seen as an infinitesimal version of McDiarmid, but with much stronger conclusions.</p>
 

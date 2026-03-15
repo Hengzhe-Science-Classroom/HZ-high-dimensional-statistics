@@ -14,6 +14,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Multiple Testing Problem</h2>
 
+                <div class="env-block roadmap">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>Chapters 8-10 addressed the <em>estimation</em> problem in high dimensions: recovering a sparse signal from noisy data. We now turn to the <em>inference</em> problem: when we test many hypotheses simultaneously (one per gene, one per voxel, one per predictor), how do we control the flood of false positives? This chapter introduces the multiple testing framework, develops the false discovery rate (FDR) as the appropriate error metric for large-scale testing, presents the Benjamini-Hochberg procedure and its adaptive variants, and discusses the challenges posed by dependence structures. These ideas set the stage for the debiased Lasso inference in Chapter 12 and the selective inference framework of Chapter 13.</p>
+                    </div>
+                </div>
+
+
                 <p>In modern high-dimensional statistics, we routinely face situations where thousands or even millions of hypothesis tests are conducted simultaneously. A genome-wide association study may test \\(m = 500{,}000\\) SNPs for association with a disease. A neuroimaging study may test \\(m = 100{,}000\\) voxels for activation. In these settings, classical single-test methodology breaks down catastrophically.</p>
 
                 <h3>Setup</h3>
@@ -168,6 +176,14 @@ window.CHAPTERS.push({
             title: 'False Discovery Rate',
             content: `
                 <h2>False Discovery Rate</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The previous section showed that traditional error metrics (FWER) are too conservative for high-dimensional testing: controlling the probability of <em>any</em> false rejection leads to almost no discoveries. The false discovery rate (FDR), introduced by Benjamini and Hochberg in their landmark 1995 paper, offers a more balanced tradeoff. Instead of controlling the probability of any false positive, FDR controls the expected <em>proportion</em> of false positives among all rejections. This relaxation allows many more true discoveries while still providing meaningful error control.</p>
+                    </div>
+                </div>
+
 
                 <p>The key insight of Benjamini and Hochberg (1995) was to shift the focus from controlling the probability of <em>any</em> false discovery to controlling the expected <em>proportion</em> of false discoveries among all discoveries.</p>
 
@@ -509,6 +525,14 @@ window.CHAPTERS.push({
             content: `
                 <h2>The Benjamini-Hochberg Procedure</h2>
 
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>Having defined the FDR, we need a practical procedure that controls it. The Benjamini-Hochberg (BH) procedure is elegantly simple: sort the p-values, then find the largest index \(k\) such that \(p_{(k)} \le k \alpha / m\), and reject all hypotheses with smaller p-values. Despite its simplicity, proving that BH controls FDR at level \(\alpha\) requires subtle arguments. This section presents the BH procedure, its proof, and its behavior under independence and dependence.</p>
+                    </div>
+                </div>
+
+
                 <p>The Benjamini-Hochberg (BH) procedure is one of the most influential contributions to modern statistics. Its elegance lies in the simplicity of the algorithm and the depth of the proof.</p>
 
                 <h3>The Algorithm</h3>
@@ -832,6 +856,14 @@ window.CHAPTERS.push({
             title: 'Adaptive FDR',
             content: `
                 <h2>Adaptive FDR: Storey's Method and q-values</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The BH procedure controls FDR but does not adapt to the proportion of true nulls \(\pi_0\). When most hypotheses are null (\(\pi_0 \approx 1\)), BH is nearly optimal. But when many signals are present (\(\pi_0\) is small), BH is conservative because it uses the nominal level \(\alpha\) rather than the adjusted level \(\alpha / \pi_0\). Adaptive FDR procedures estimate \(\pi_0\) from the data and plug it in, gaining substantial power when signals are abundant. This section develops Storey's q-value approach and other adaptive methods.</p>
+                    </div>
+                </div>
+
 
                 <p>We saw that the BH procedure actually controls FDR at \\(\\pi_0 q\\), not \\(q\\). When \\(\\pi_0\\) is substantially less than 1 (many true signals), this is conservative. <strong>Adaptive FDR</strong> methods estimate \\(\\pi_0\\) from the data and use this to sharpen the procedure.</p>
 
@@ -1244,6 +1276,14 @@ window.CHAPTERS.push({
             title: 'Dependence Structures',
             content: `
                 <h2>Dependence Structures: PRDS and the BY Procedure</h2>
+
+                <div class="env-block bridge">
+                    <div class="env-title">Connection</div>
+                    <div class="env-body">
+                        <p>The BH procedure was originally proved under independence of p-values, while the Benjamini-Yekutieli extension handles arbitrary dependence at the cost of a \(\log m\) factor. In practice, test statistics are often correlated: gene expression levels share pathways, brain voxels are spatially correlated, and regression coefficients are correlated through the design matrix. This section explores how different dependence structures affect FDR control and develops methods that exploit known dependence structure for improved power. Understanding dependence is crucial for the regression-based inference procedures in Chapters 12-13, where the test statistics for different coefficients are correlated through the design matrix.</p>
+                    </div>
+                </div>
+
 
                 <p>The independence assumption in Theorem 11.10 is often unrealistic. Gene expression levels are correlated, brain voxels are spatially dependent, and financial asset returns exhibit complex dependence. How robust is the BH procedure to dependence?</p>
 
